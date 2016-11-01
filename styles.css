@@ -1,0 +1,62 @@
+/*font-family: 'Lobster', cursive;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Bungee Hairline', cursive;
+font-family: 'Exo', sans-serif;
+font-family: 'Federo', sans-serif;*/
+
+main {
+    background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
+    /*background-color: grey;*/
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    /*position: relative;*/
+}
+
+#clock {
+    font-family: 'Exo', sans-serif;
+    font-size: 12vw;
+    font-weight: 600;
+    color: white;
+}
+
+.clock {
+    width: 75vw;
+    /*text-align: center;*/
+    margin: 0 auto;
+
+
+    /*margin: 45vh auto;*/
+}
+.center {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weather {
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  /*transform: translate(-50%, -50%);*/
+}
+
+.bottom-center {
+  margin: 5px auto;
+  position:absolute;
+}
+
+.greeting {
+  font-family: 'Exo', sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  width: 100vw;
+  color: white;
+  /*position: absolute;*/
+  margin: 0 auto;
+
+}
