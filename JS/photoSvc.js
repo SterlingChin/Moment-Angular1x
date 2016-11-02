@@ -7,6 +7,7 @@ angular.module('unsplashExtention').service('photoSvc', function($http){
       url: baseUrl + "collections/:" + collectionID + "/photos"
     }).then(function(response){
       if(response === 200){
+        console.log(response.data);
         return response.data.results;
       }
       return "link broken";

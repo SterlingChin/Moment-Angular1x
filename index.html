@@ -11,19 +11,21 @@
 
 <body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
     <main>
+<div>
+  <img class="settings-icon" src="./icons/settings-512.png" alt="settings" />
 
-        <!-- <div class="weather">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=40.226185&lon=-111.660719&name=DevMountain"> </iframe>
-        </div> -->
+</div>
         <div class="weather">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=33.373738&lon=-111.661506&name=Mesa, AZ"> </iframe>
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=40.226185&lon=-111.660719&name=DevMountain"> </iframe>
         </div>
+        <!-- <div class="weather">
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=33.373738&lon=-111.661506&name=Mesa, AZ"> </iframe>
+        </div> -->
         <div class='center' id="container">
             <p id='clock' class="clock">&nbsp;</p><br>
             <p class="greeting">{{greeting}}, {{name}}</p>
         </div>
         <div class='greeting'>
-          {{quoteObj.quoteText}}
         </div>
 
 

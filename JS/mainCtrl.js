@@ -16,12 +16,10 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
     }
     greeting();
 
+    function location() {
+        return "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
+    }
+    location();
+    console.log(location());
 
-
-
-    // function location() {
-    //     return "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
-    // }
-    // $scope.yourLocation = location();
-    //
 });
