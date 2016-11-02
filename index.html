@@ -13,6 +13,7 @@
 <body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
     <animate-dir></animate-dir>
     <main>
+
         <div>
             <img class="settings-icon" src="./icons/settings-512.png" alt="settings" />
         </div>
@@ -20,18 +21,33 @@
             <span class='menu-title'><u>settings</u></span><br>
             <span class='menu-items'>name: <input class='name' ng-model='name' ng-submit="saveName(name)" type="text" name="name" value=""></span><br>
             <span class='menu-items'>
+              time
+              <select class='menu-select' ng-model='timeOption'>
+                      <option value=''>On</option>
+                      <option value='-'>Off</option>
+                    </select>
+                  </span><br>
+            <span class='menu-items'>
               greeting
-<select class='menu-select' ng-model='greetingOption'>
-          <option value=''>On</option>
-          <option value='-'>Off</option>
-        </select>
-        </span>
-            <br>
-            <span class='menu-items'>weather</span><br>
-            <span class='menu-items'>quote</span><br>
-
-
-
+              <select class='menu-select' ng-model='greetingOption'>
+                      <option value=''>On</option>
+                      <option value='-'>Off</option>
+                    </select>
+                  </span><br>
+            <span class='menu-items'>
+              weather
+              <select class='menu-select' ng-model='weatherOption'>
+                      <option value=''>On</option>
+                      <option value='-'>Off</option>
+                    </select>
+                  </span><br>
+            <span class='menu-items'>
+              quote
+              <select class='menu-select' ng-model='quoteOption'>
+                      <option value=''>On</option>
+                      <option value='-'>Off</option>
+                    </select>
+                  </span><br>
         </div>
         <!-- <div class="weather">
             <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src='"http://forecast.io/embed/#lat=" + {{latitude}} + "&lon=" + {{longitude}} + "&name=" + {{city}}'> </iframe>
@@ -39,7 +55,7 @@
         <!-- <div class="weather">
             <iframe ng-app="unsplashExtention" id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" ng-src="{{location}}"> </iframe>
         </div> -->
-        <div class='weather1'>
+        <div ng-hide='weatherOption' class='weather1'>
             <script type="text/javascript" src="https://weatherfor.us/static/js/minion/minion.js"></script>
             <script type="text/javascript">
                 w4uminion.run({
@@ -49,10 +65,11 @@
         </div>
 
         <div class='center' id="container">
-            <p id='clock' class="clock">&nbsp;</p><br>
+            <p ng-hide='timeOption' id='clock' class="clock">&nbsp;</p><br>
             <p ng-hide='greetingOption' class="greeting">{{greeting}}, {{name}}</p>
         </div>
-        <div class="quote bottom-center">
+
+        <div ng-hide='quoteOption'class="quote bottom-center">
             "{{quoteText}}"<br> ~ {{quoteAuthor}}
         </div>
 

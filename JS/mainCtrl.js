@@ -28,6 +28,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
         nameSvc.setName(name);
         console.log(saveName);
     };
+    
     $scope.timeOption = false;
     $scope.greetingOption = false;
     $scope.weatherOption = false;

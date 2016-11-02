@@ -25,11 +25,13 @@ angular.module('unsplashExtention')
                         $('.menu-container').css('display', 'none');
                       }, 500);
                     });
+
                     $('.name').on('keyUp', function(){
                       console.log($('.name').val());
                     var currentName = $('.name').val();
                     localStorage.setItem('name', currentName);
                     });
+                    
                 });
 
             }
