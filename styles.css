@@ -12,7 +12,7 @@ main {
     background-size: cover;
     height: 100vh;
     text-align: center;
-    /*position: relative;*/
+
 }
 
 #clock {
@@ -24,11 +24,7 @@ main {
 
 .clock {
     width: 75vw;
-    /*text-align: center;*/
     margin: 0 auto;
-
-
-    /*margin: 45vh auto;*/
 }
 .center {
   position:absolute;
@@ -42,7 +38,6 @@ main {
   position: absolute;
   top: 5px;
   right: 5px;
-  /*transform: translate(-50%, -50%);*/
 }
 
 .bottom-center {
@@ -56,7 +51,6 @@ main {
   font-weight: 600;
   width: 100vw;
   color: white;
-  /*position: absolute;*/
-  margin: 0 auto;
+  margin: 5px auto;
 
 }

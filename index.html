@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="newTabPhoto">
+<html ng-app="unsplashExtention">
 
 <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="reset.css" media="screen" title="no title">
 </head>
 
-<body onload="updateClock(); setInterval('updateClock()', 500 )" ng-controller="mainCtrl">
+<body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
     <main>
 
         <!-- <div class="weather">
@@ -21,37 +21,19 @@
         <div class='center' id="container">
             <p id='clock' class="clock">&nbsp;</p><br>
             <p class="greeting">{{greeting}}, {{name}}</p>
-            <!-- <script>
-                (function() {
-                    var cx = '013432667871415920206:wc9inw6ogam';
-                    var gcse = document.createElement('script');
-                    gcse.type = 'text/javascript';
-                    gcse.async = true;
-                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                    var s = document.getElementsByTagName('script')[0];
-                    s.parentNode.insertBefore(gcse, s);
-                })();
-            </script>
-            <gcse:search></gcse:search> -->
         </div>
-        <!-- <div ng-repeat="quote in quotes">
-          <p>{{quotes.quote}}</p>
-          <p>{{quotes.author}}</p>
-        </div> -->
-        <!-- <div class="greeting">
-    <div class="greeting"><script language="javascript">
-   greeting();
-</script>
-Hello Dad, have a beautiful day!
-</div> -->
+        <div class='greeting'>
+          {{quoteObj.quoteText}}
+        </div>
 
 
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="./js/app.js" charset="utf-8"></script>
     <script src="./js/mainCtrl.js" charset="utf-8"></script>
-    <script src="./js/servicePhoto.js" charset="utf-8"></script>
+    <script src="./js/photoSvc.js" charset="utf-8"></script>
     <script src="./js/javascript.js" charset="utf-8"></script>
+    <script src="./js/quoteSvc.js" charset="utf-8"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp"></script>
 </body>
 

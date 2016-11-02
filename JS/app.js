@@ -1,1 +1,1 @@
-angular.module('newTabPhoto', []);
+angular.module('unsplashExtention', []);

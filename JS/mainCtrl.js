@@ -1,12 +1,11 @@
-angular.module('newTabPhoto').controller('mainCtrl', function($scope) {
-    // mainSvc.getUsersFavs().then(function(photos) {
-    //     $scope.photos = photo;
-    // });
+angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc) {
+    $scope.name = "Steve";
+    var quoteObj = quoteSvc.getQuote();
+    console.log(quoteObj);
 
     function greeting() {
         var currentTime = new Date();
         var currentHours = currentTime.getHours();
-        console.log(currentHours);
         if (currentHours < 12) {
             $scope.greeting = "Good Morning";
         } else if (17 > currentHours && currentHours >= 12) {
@@ -17,7 +16,7 @@ angular.module('newTabPhoto').controller('mainCtrl', function($scope) {
     }
     greeting();
 
-    $scope.name = "Steve";
+
 
 
     // function location() {
@@ -25,7 +24,4 @@ angular.module('newTabPhoto').controller('mainCtrl', function($scope) {
     // }
     // $scope.yourLocation = location();
     //
-    // quoteSvc.getQuote(quoteSvc).then(function(quotes) {
-    //     $scope.quote = quote;
-    // });
 });
