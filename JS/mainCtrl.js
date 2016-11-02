@@ -1,11 +1,9 @@
-angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc) {
-    $scope.name = "Steve";
+angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc, nameSvc) {
     quoteSvc.getQuote().then(function(response) {
         console.log(response);
-        $scope.quoteText = response.quoteText;
+        $scope.quoteText = response.quoteText.trim();
         $scope.quoteAuthor = response.quoteAuthor || "Unknown";
     });
-
 
     function greeting() {
         var currentTime = new Date();
@@ -20,14 +18,19 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
     }
     greeting();
 
-    // $scope.latitude = function location() {
-    //     return "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
-    // };
-    // location();
-    // console.log(location());
-
-    $scope.latitude = geoplugin_latitude();
-    $scope.longitude = geoplugin_longitude();
-    $scope.city = geoplugin_city();
+    // $scope.location = "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
+    //
+    // $scope.latitude = geoplugin_latitude();
+    // $scope.longitude = geoplugin_longitude();
+    // $scope.city = geoplugin_city();
+    $scope.name = nameSvc.name;
+    $scope.saveName = function(name) {
+        nameSvc.setName(name);
+        console.log(saveName);
+    };
+    $scope.timeOption = false;
+    $scope.greetingOption = false;
+    $scope.weatherOption = false;
+    $scope.quoteOption = false;
 
 });

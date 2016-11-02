@@ -13,7 +13,6 @@ main {
     background-size: cover;
     height: 100vh;
     text-align: center;
-
 }
 
 #clock {
@@ -27,55 +26,108 @@ main {
     width: 75vw;
     margin: 0 auto;
 }
+
 .center {
-  position:absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .weather {
-  margin: 0;
-  position: absolute;
-  top: 5px;
-  right: 5px;
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20vw;
+}
+
+.weather1 {
+    margin: 0 auto;
+    max-width: 250px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .greeting {
-  font-family: 'Exo', sans-serif;
-  font-size: 50px;
-  font-weight: 600;
-  width: 100vw;
-  color: white;
-  margin: 5px auto;
+    font-family: 'Exo', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    width: 100vw;
+    color: white;
+    margin: 0px auto;
 }
 
 .settings-icon {
-  margin: 0;
-  position: absolute;
-  top : 10px;
-  left: 6px;
-  height: 3vw;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 6px;
+    height: 3vw;
+    max-height: 30px;
+}
+
+.settings-menu {
+    font-family: "Exo", sans-serif;
+    display: none;
+    color: white;
+    top: 14px;
+    left: 38px;
+    position: absolute;
+}
+
+.menu-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 300px;
+    width: 300px;
+    font-family: "Exo", sans-serif;
+    font-size: 21px;
+    color: white;
+    /*line-height: 30px;*/
+    /*display: flex;*/
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.menu-items {
+    display: none;
+    text-align: left;
+    /*display: block;*/
+}
+
+.menu-title {
+    margin: 10px auto;
+display: none;
+}
+
+.menu-select {
+  width: 80px;
 }
 
 .quote {
-  font-family: "David Libre", serif;
-  font-size: 21px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 5px;
-  padding: 10px;
+    font-family: "David Libre", serif;
+    font-size: 21px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0px;
 }
 
 .bottom-center {
-  margin: 5px auto;
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 85vw;
+    margin: 5px auto;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
 }
-#settings {
-  background-color: grey;
 
+#settings {
+    background-color: grey;
 }
