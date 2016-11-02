@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>My New Tab</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Garamond|Exo|Federo|Lobster|Orbitron:900|Yanone+Kaffeesatz:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=David+Libre" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" media="screen" title="no title">
     <link rel="stylesheet" href="reset.css" media="screen" title="no title">
 </head>
@@ -15,17 +16,19 @@
   <img class="settings-icon" src="./icons/settings-512.png" alt="settings" />
 
 </div>
-        <div class="weather">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=40.226185&lon=-111.660719&name=DevMountain"> </iframe>
-        </div>
         <!-- <div class="weather">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=33.373738&lon=-111.661506&name=Mesa, AZ"> </iframe>
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src='"http://forecast.io/embed/#lat=" + {{latitude}} + "&lon=" + {{longitude}} + "&name=" + {{city}}'> </iframe>
         </div> -->
+        <div class="weather">
+            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src="http://forecast.io/embed/#lat=33.373738&lon=-111.661506&name=Mesa, AZ"> </iframe>
+        </div>
         <div class='center' id="container">
             <p id='clock' class="clock">&nbsp;</p><br>
             <p class="greeting">{{greeting}}, {{name}}</p>
         </div>
-        <div class='greeting'>
+        <div class='quote bottom-center'>
+          "{{quoteText}}"<br/>
+        ~ {{quoteAuthor}}
         </div>
 
 
