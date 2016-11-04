@@ -11,7 +11,7 @@
 </head>
 
 <body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
-    <animate-dir></animate-dir>
+    <animate-dir settings='settings'></animate-dir>
     <main>
 
         <div>
@@ -19,39 +19,43 @@
         </div>
         <div class="menu-container">
             <span class='menu-title'><u>settings</u></span><br>
-            <span class='menu-items'>name: <input class='name' ng-model='name' ng-submit="saveName(name)" type="text" name="name" value=""></span><br>
+            <span class='menu-items'>name: <input class='name' ng-model='name' type="text" name="name" value=""><button ng-submit='greetingName'> save</button></span><br>
             <span class='menu-items'>
               time:
-              <span ng-hide='timeOption' ng-click='timeOption = !timeOption' class='menu-toggle'>
+              <span ng-hide='settings.timeOption' ng-click='settings.timeOption = !settings.timeOption' class='menu-toggle'>
                 on
                   </span>
-            <span ng-show='timeOption' ng-click='timeOption = !timeOption' class='menu-toggle'>
+            <span ng-show='settings.timeOption' ng-click='settings.timeOption = !settings.timeOption' class='menu-toggle'>
                     off
                   </span><br>
+            </span>
             <span class='menu-items'>
               greeting:
-              <span ng-hide='greetingOption' ng-click='greetingOption = !greetingOption' class='menu-toggle'>
+              <span ng-hide='settings.greetingOption' ng-click='settings.greetingOption = !settings.greetingOption' class='menu-toggle'>
                 on
                   </span>
-            <span ng-show='greetingOption' ng-click='greetingOption = !greetingOption' class='menu-toggle'>
+            <span ng-show='settings.greetingOption' ng-click='settings.greetingOption = !settings.greetingOption' class='menu-toggle'>
                     off
                   </span><br>
+            </span>
             <span class='menu-items'>
               weather:
-              <span ng-hide='weatherOption' ng-click='weatherOption = !weatherOption' class='menu-toggle'>
+              <span ng-hide='settings.weatherOption' ng-click='settings.weatherOption = !settings.weatherOption' class='menu-toggle'>
                 on
                   </span>
-            <span ng-show='weatherOption' ng-click='weatherOption = !weatherOption' class='menu-toggle'>
+            <span ng-show='settings.weatherOption' ng-click='settings.weatherOption = !settings.weatherOption' class='menu-toggle'>
                     off
                   </span><br>
+            </span>
             <span class='menu-items'>
                     quote:
-                    <span ng-hide='quoteOption' ng-click='quoteOption = !quoteOption' class='menu-toggle'>
+                    <span ng-hide='settings.quoteOption' ng-click='settings.quoteOption = !settings.quoteOption' class='menu-toggle'>
                       on
                         </span>
-            <span ng-show='quoteOption' ng-click='quoteOption = !quoteOption' class='menu-toggle'>
-                          off
-                            </span><br>
+            <span ng-show='settings.quoteOption' ng-click='settings.quoteOption = !settings.quoteOption' class='menu-toggle'>
+                      off
+                        </span><br>
+            </span>
 
         </div>
         <!-- <div class="weather">
@@ -60,24 +64,18 @@
         <!-- <div class="weather">
             <iframe ng-app="unsplashExtention" id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" ng-src="{{location}}"> </iframe>
         </div> -->
-        <div ng-hide='weatherOption' class='weather1'>
-            <script type="text/javascript" src="https://weatherfor.us/static/js/minion/minion.js"></script>
-            <script type="text/javascript">
-                w4uminion.run({
-                    "txt_color": "#000000"
-                });
-            </script>
-        </div>
+        <!-- <div ng-hide='setting.weatherOption' class='weather1' ng-model='getWeather()'>
+          {{weatherCity}}, {{weatherMain}}, {{weatherIcon}}, {{weatherTemp}}
+        </div> -->
 
         <div class='center' id="container">
-            <p ng-hide='timeOption ' id='clock' class="clock">&nbsp;</p><br>
-            <p ng-hide='greetingOption' class="greeting">{{greeting}}, {{name}}</p>
+            <p ng-hide='settings.timeOption ' id='clock' class="clock">&nbsp;</p><br>
+            <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{name}}</p>
         </div>
 
-        <div ng-hide='quoteOption' class="quote bottom-center">
+        <div ng-hide='settings.quoteOption' class="quote bottom-center">
             "{{quoteText}}"<br> ~ {{quoteAuthor}}
         </div>
-
     </main>
 
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>

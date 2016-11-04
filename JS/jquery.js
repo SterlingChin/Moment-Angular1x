@@ -1,10 +1,12 @@
 angular.module('unsplashExtention')
-    .directive('animateDir', function() {
+    .directive('animateDir', function(userPreferences) {
         return {
+          scope:{
+            settings:"="
+          },
             restrict: 'EA',
             link: function(scope, elems, attrs) {
                 $(document).ready(function() {
-
                     $('.settings-icon').on('mouseenter', function() {
 
                         $('.menu-container').show(500, function() {
@@ -18,19 +20,22 @@ angular.module('unsplashExtention')
                     });
 
                     $('.menu-container').on('mouseleave', function() {
+                        console.log(scope.settings);
                         $('.menu-container').hide(500);
                         $('.menu-items').hide(100);
                         $('.menu-title').hide(100);
                         setTimeout(function() {
                             $('.menu-container').css('display', 'none');
                         }, 500);
+userPreferences.setCookieData(scope.settings);
+console.log(scope.settings);
                     });
-
-                    $('.name').on('keyUp', function() {
-                        console.log($('.name').val());
-                        var currentName = $('.name').val();
-                        localStorage.setItem('name', currentName);
-                    });
+                    //
+                    // $('.name').on('keyUp', function() {
+                    //     console.log($('.name').val());
+                    //     var currentName = $('.name').val();
+                    //     localStorage.setItem('name', currentName);
+                    // });
                 });
             }
         };

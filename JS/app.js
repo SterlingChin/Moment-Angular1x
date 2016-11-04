@@ -1,1 +1,1 @@
-angular.module('unsplashExtention', []);
+angular.module('unsplashExtention', ["ngCookies"]);

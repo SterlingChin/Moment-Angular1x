@@ -1,9 +1,17 @@
-angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc, nameSvc) {
+angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc, nameSvc, userPreferences) {
     quoteSvc.getQuote().then(function(response) {
         console.log(response);
         $scope.quoteText = response.quoteText.trim();
         $scope.quoteAuthor = response.quoteAuthor || "Unknown";
     });
+
+    // weatherSvc.getWeather().then(function(response){
+    //   console.log(response);
+    //   $scope.weatherMain = response.weather.main;
+    //   $scope.weatherIcon = response.weather.icon;
+    //   $scope.weatherTemp = response.main.temp;
+    //   $scope.weatherCity = response.name;
+    // });
 
     function greeting() {
         var currentTime = new Date();
@@ -19,20 +27,17 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
     greeting();
 
     // $scope.location = "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
-    //
-    // $scope.latitude = geoplugin_latitude();
-    // $scope.longitude = geoplugin_longitude();
-    // $scope.city = geoplugin_city();
-    $scope.name = nameSvc.name;
-    $scope.saveName = function(name) {
-        nameSvc.setName(name);
-        console.log(saveName);
-    };
 
-    $scope.timeOption = false;
-    $scope.greetingOption = false;
-    $scope.weatherOption = false;
-    $scope.quoteOption = false;
-    $scope.backgroundOption = false;
 
+    $scope.latitude = geoplugin_latitude();
+    $scope.longitude = geoplugin_longitude();
+    $scope.city = geoplugin_city();
+    console.log(geoplugin_city());
+    console.log(geoplugin_longitude());
+    console.log(geoplugin_latitude());
+
+    // $scope.location = 'http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a';
+
+$scope.settings = userPreferences.userSettings();
+console.log($scope.settings);
 });
