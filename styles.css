@@ -8,8 +8,9 @@ font-family: 'Federo', sans-serif;
 font-family: 'David Libre', serif;*/
 
 main {
-    background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
+    /*background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');*/
     /*background-color: grey;*/
+    background-image: url('https://images.unsplash.com/photo-1439123068749-20f4035bd7ed?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=8ea950fcbf696b0b40c1f70e9d9c7a47');
     background-size: cover;
     height: 100vh;
     text-align: center;
@@ -59,6 +60,10 @@ main {
     margin: 0px auto;
 }
 
+#container {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 .settings-icon {
     margin: 0;
     position: absolute;
@@ -66,6 +71,7 @@ main {
     left: 6px;
     height: 3vw;
     max-height: 30px;
+    min-height: 20px;
 }
 
 .settings-menu {
@@ -83,15 +89,14 @@ main {
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 350px;
+    /*height: 400px;*/
     width: 300px;
     font-family: "Exo", sans-serif;
     font-size: 21px;
     color: white;
-    /*line-height: 30px;*/
-    /*display: flex;*/
     flex-direction: column;
     align-content: flex-start;
+    padding: 15px;
 }
 
 .menu-items {
@@ -102,11 +107,16 @@ main {
 
 .menu-title {
     margin: 10px auto;
-display: none;
+    display: none;
 }
 
 .menu-select {
-  width: 80px;
+    width: 80px;
+}
+
+.menu-toggle {
+    color: white;
+    cursor: pointer;
 }
 
 .quote {

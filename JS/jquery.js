@@ -14,26 +14,24 @@ angular.module('unsplashExtention')
                                 $('.menu-title').show(150);
                             }, 100);
 
-                          });
+                        });
                     });
 
                     $('.menu-container').on('mouseleave', function() {
                         $('.menu-container').hide(500);
                         $('.menu-items').hide(100);
                         $('.menu-title').hide(100);
-                        setTimeout( function(){
-                        $('.menu-container').css('display', 'none');
-                      }, 500);
+                        setTimeout(function() {
+                            $('.menu-container').css('display', 'none');
+                        }, 500);
                     });
 
-                    $('.name').on('keyUp', function(){
-                      console.log($('.name').val());
-                    var currentName = $('.name').val();
-                    localStorage.setItem('name', currentName);
+                    $('.name').on('keyUp', function() {
+                        console.log($('.name').val());
+                        var currentName = $('.name').val();
+                        localStorage.setItem('name', currentName);
                     });
-                    
                 });
-
             }
         };
     });
