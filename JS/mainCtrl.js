@@ -27,6 +27,10 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
     greeting();
 
     // $scope.location = "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
+    $scope.settings = userPreferences.userSettings();
+    console.log($scope.settings);
+    $scope.name = $scope.settings.userName;
+    console.log($scope.name);
 
 
     $scope.latitude = geoplugin_latitude();
@@ -38,6 +42,5 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
 
     // $scope.location = 'http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a';
 
-$scope.settings = userPreferences.userSettings();
-console.log($scope.settings);
+
 });

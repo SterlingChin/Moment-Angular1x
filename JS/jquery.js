@@ -1,9 +1,9 @@
 angular.module('unsplashExtention')
     .directive('animateDir', function(userPreferences) {
         return {
-          scope:{
-            settings:"="
-          },
+            scope: {
+                settings: "="
+            },
             restrict: 'EA',
             link: function(scope, elems, attrs) {
                 $(document).ready(function() {
@@ -27,8 +27,8 @@ angular.module('unsplashExtention')
                         setTimeout(function() {
                             $('.menu-container').css('display', 'none');
                         }, 500);
-userPreferences.setCookieData(scope.settings);
-console.log(scope.settings);
+                        userPreferences.setCookieData(scope.settings);
+                        console.log(scope.settings);
                     });
                     //
                     // $('.name').on('keyUp', function() {

@@ -14,6 +14,7 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
                                     return settings;
                                 }
                                 return {
+                                    userName: " ",
                                     timeOption: false,
                                     greetingOption: false,
                                     weatherOption: false,

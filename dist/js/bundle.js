@@ -19,6 +19,7 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
                 return settings;
             }
             return {
+                userName: " ",
                 timeOption: false,
                 greetingOption: false,
                 weatherOption: false,
@@ -121,7 +122,10 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     greeting();
 
     // $scope.location = "http://forecast.io/embed/#lat=" + geoplugin_latitude() + "&lon=" + geoplugin_longitude() + "&name=" + geoplugin_city();
-
+    $scope.settings = userPreferences.userSettings();
+    console.log($scope.settings);
+    $scope.name = $scope.settings.userName;
+    console.log($scope.name);
 
     $scope.latitude = geoplugin_latitude();
     $scope.longitude = geoplugin_longitude();
@@ -132,8 +136,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
 
     // $scope.location = 'http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a';
 
-    $scope.settings = userPreferences.userSettings();
-    console.log($scope.settings);
 });
 'use strict';
 
