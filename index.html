@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>My New Tab</title>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Garamond|Exo|Federo|Lobster|Orbitron:900|Yanone+Kaffeesatz:700" rel="stylesheet">
+    <title>This One</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Garamond|Exo|Federo|Lobster|Orbitron:900|Yanone+Kaffeesatz:700|Share+Tech+Mono|Oswald|PT+Sans+Narrow" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=David+Libre" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" media="screen" title="no title">
-    <link rel="stylesheet" href="reset.css" media="screen" title="no title">
+    <link rel="stylesheet" href="./dist/styles.css" media="screen" title="no title">
 </head>
 
 <body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
@@ -15,7 +14,7 @@
     <main>
 
         <div>
-            <img class="settings-icon" src="./icons/settings-512.png" alt="settings" />
+            <img class="settings-icon" src="./icons/white-icon.png" alt="settings" />
         </div>
         <div class="menu-container">
             <span class='menu-title'><u>settings</u></span><br>
@@ -62,34 +61,97 @@
                       off
                         </span>
             </span><br>
-
         </div>
-        <!-- <div class="weather">
-            <iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" src='"http://forecast.io/embed/#lat=" + {{latitude}} + "&lon=" + {{longitude}} + "&name=" + {{city}}'> </iframe>
-        </div> -->
-        <!-- <div class="weather">
-            <iframe ng-app="unsplashExtention" id="forecast_embed" type="text/html" frameborder="0" height="245" width="245px" ng-src="{{location}}"> </iframe>
-        </div> -->
-        <!-- <div ng-hide='setting.weatherOption' class='weather1' ng-model='getWeather()'>
-          {{weatherCity}}, {{weatherMain}}, {{weatherIcon}}, {{weatherTemp}}
-        </div> -->
 
-        <div class='center' id="container">
-            <p ng-hide='settings.timeOption ' id='clock' class="clock">&nbsp;</p><br>
-            <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{name}}</p>
+        <div class="weather" ng-hide='settings.weatherOption'>
+            <div id='weatherCity'>
+                {{city}}
+            </div>
+            <div id='weatherTemp'>
+                {{weatherTemp | number: 0}}°
+            </div>
+            <div id='weatherDesc'>
+                {{weatherDesc}}
+            </div>
+            <div id='weatherDesc'>
+              {{todayDate}}
+            </div>
+            <div id='weatherData'>
+                <span>high: {{forecastTempHigh | number: 0}}°</span><br>
+                <span>low: {{forecastTempLow | number: 0}}°</span><br>
+                <span>windspeed: {{weatherSpeed}}mph</span><br>
+                <span>humidity: {{weatherHum}}%</span><br>
+                <span></span><br>
+                <span id='sevenDay' ng-click=''>7 day forecast</span><br>
+            </div>
+        </div>
+        <div class="forecast-container">
+            <div>
+                <span class="forecast-day-data">tomorrow</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh1 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow1 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc1}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day2}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh2 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow2 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc2}}</span><br>
+              </div>
+              <div>
+                <span class="forecast-day-data">{{day3}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh3 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow3 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc3}}</span><br>
+              </div>
+              <div>
+                <span class="forecast-day-data">{{day4}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh4 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow4 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc4}}</span><br>
+              </div>
+              <div>
+                <span class="forecast-day-data">{{day5}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh5 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow5 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc5}}</span><br>
+              </div>
+              <div>
+                <span class="forecast-day-data">{{day6}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh6 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow6 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc6}}</span><br>
+                <span></span><br>
+                <span class="forecast-day-data"  id='hideForecast' ng-click='forecastOption'>hide forecast</span>
+              </div>
+            </div>
+        </div>
+
+        <div class='center clock' id="container">
+            <p ng-hide='settings.timeOption' id='clock'>{{time}}</p><br>
+            <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{name}}.</p>
         </div>
 
         <div ng-hide='settings.quoteOption' class="quote bottom-center">
-            "{{quoteText}}"<br> ~ {{quoteAuthor}}
+            <span>"{{quoteText}}"</span><br>
+            <span id='quoteAuthor'> ~ {{quoteAuthor}} ~ </span>
         </div>
+        <div>
+            <img class="console" src="./icons/answer-42.gif" alt="forSteve" />
+        </div>
+        <div class="lastOne">
+        </div>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
     <script src="https://code.angularjs.org/1.5.8/angular-cookies.js" charset="utf-8"></script>
+    <script src="http://momentjs.com/downloads/moment.js" charset="utf-8"></script>
     <script src="./dist/js/bundle.js" charset="utf-8"></script>
     <script language="JavaScript" src="http://www.geoplugin.net/javascript.gp"></script>
+
 
 </body>
 

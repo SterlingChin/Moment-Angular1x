@@ -1,28 +1,32 @@
 angular.module('unsplashExtention').factory('userPreferences', ['$cookies', function($cookies) {
+        return {
+            setCookieData: function(settingData) {
+              // if($scope.settings.userName === "Steve"){
+              //   $('.console').show(300);
+              //   $('.console').css('display', 'flex');
+              // }
+                settingData = JSON.stringify(settingData);
+                $cookies.put('settingKey', settingData);
+            },
+
+            userSettings: function() {
+                var settings = $cookies.get('settingKey');
+                if (settings) {
+                    settings = JSON.parse(settings);
+                    return settings;
+                }
                 return {
-                    setCookieData: function(settingData) {
-                      settingData = JSON.stringify(settingData);
-                        $cookies.put('settingKey', settingData);
-                        console.log(settingData);
-                    },
+                    userName: "enter name",
+                    timeOption: false,
+                    greetingOption: false,
+                    weatherOption: false,
+                    quoteOption: false,
+                    backgroundOption: false,
+                    // backgroundUrl: ' '
 
-                            userSettings: function() {
-                                var settings = $cookies.get('settingKey');
-                                if (settings) {
-                                    settings = JSON.parse(settings);
-                                        console.log(settings);
-                                    return settings;
-                                }
-                                return {
-                                    userName: " ",
-                                    timeOption: false,
-                                    greetingOption: false,
-                                    weatherOption: false,
-                                    quoteOption: false,
-                                    backgroundOption: false
-                                };
-                            }
-                          };
-                        }
+                };
+            }
+        };
+    }
 
-                ]);
+]);

@@ -1,16 +1,11 @@
 angular.module('unsplashExtention').service('photoSvc', function($http){
-  this.getUsersFavs = function(){
-    var baseUrl = "https://api.unsplash.com/";
-    var collectionID = 140375;
-    return $http({
-      method: 'GET',
-      url: baseUrl + "collections/:" + collectionID + "/photos"
-    }).then(function(response){
-      if(response === 200){
-        console.log(response.data);
-        return response.data.results;
-      }
-      return "link broken";
-    });
-  };
+//   this.getPhoto = function(){
+//     return $http({
+//       method: 'GET',
+//       url: "https://source.unsplash.com/category/nature/1920x1080"
+//     }).then(function(response){
+//         return response;
+//       });
+//
+// };
 });
