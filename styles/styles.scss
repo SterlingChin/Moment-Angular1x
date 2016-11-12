@@ -11,8 +11,8 @@ $shadow: 2px 2px rgba(0,0,0,0.3);
 $shadowSm: 1px 1px rgba(0,0,0,0.3);
 
 main {
-    // background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
-    background-image: url('https://source.unsplash.com/category/nature/1920x1080');
+    background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
+    // background-image: url('https://source.unsplash.com/category/nature/1920x1080');
     background-size: cover;
     height: 100vh;
     text-align: center;
@@ -20,27 +20,34 @@ main {
 
 #clock {
     font-family: $clockFont;
-    font-size: 12vw;
+    font-size: 10vw;
     font-weight: 400;
     color: white;
     text-shadow: $shadow;
 }
 
 .clock {
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 .greeting {
     font-family: $clockFont;
-    font-size: 50px;
+    font-size: 4vw;
     font-weight: 200;
     color: white;
-    margin: 5px;
+    margin: 0;
     text-shadow: $shadow;
+    padding: 5px;
+}
+
+.date {
+    font-family: $clockFont;
+    font-size: 25px;
+    color: white;
+    text-shadow: $shadowSm;
 }
 
 #container {
-    border-radius: 10px;
     width: 100vw;
 }
 
@@ -53,8 +60,8 @@ main {
 
 .weather {
     position: absolute;
-    top: 3px;
-    right: 3px;
+    top: 10px;
+    right: 10px;
     color: white;
     text-shadow: $shadow;
 }
@@ -89,10 +96,11 @@ main {
 }
 
 #sevenDay {
-  cursor: pointer;
+    cursor: pointer;
 }
-#hideForecast{
-cursor: pointer;
+
+#hideForecast {
+    cursor: pointer;
 }
 
 .forecast-container {
@@ -102,6 +110,22 @@ cursor: pointer;
     top: 5px;
     margin: auto;
     display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    text-align: right;
+    font-family: $quoteFont;
+    text-shadow: $shadowSm;
+    color: white;
+}
+
+.forecast-container2 {
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 45vw;
+    top: 5px;
+    margin: auto;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     position: absolute;
@@ -127,7 +151,7 @@ cursor: pointer;
     height: 1vw;
     max-height: 30px;
     min-height: 20px;
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .settings-menu {
@@ -146,7 +170,6 @@ cursor: pointer;
     top: 0;
     left: 0;
     z-index: 99;
-    /*height: 400px;*/
     width: 250px;
     font-size: 21px;
     color: white;
@@ -159,7 +182,6 @@ cursor: pointer;
 .menu-items {
     display: none;
     text-align: left;
-    /*display: block;*/
 }
 
 .menu-title {
@@ -192,7 +214,7 @@ cursor: pointer;
     color: white;
     padding: 5px;
     margin: 0;
-    text-shadow: $shadow;
+    text-shadow: $shadowSm;
 }
 
 #quoteAuthor {
@@ -205,17 +227,53 @@ cursor: pointer;
     bottom: 45px;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 35vw;
+    width: 40vw;
     height: 5vh;
-    // background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
 }
 
-.lastOne {
+.question-icon {
+    margin: 0;
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    height: 1vw;
+    max-height: 30px;
+    min-height: 20px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.question-container {
+    font-family: $settingsFont;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: justify;
+    display: none;
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     z-index: 99;
-    width: 10px;
-    height: 10px;
+    width: 500px;
+    height: 50vh;
+    font-size: 17px;
+    color: white;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#question-hide {
+  text-align: right;
+  cursor:pointer;
+}
+
+.acknowledgements {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: left;
+  position: absolute;
+
 }

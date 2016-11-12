@@ -8,14 +8,14 @@ angular.module('unsplashExtention', ["ngCookies"]);
 //     timeDisplay = document.createTextNode("");
 //     document.getElementById("clock").appendChild(timeDisplay);
 // }
-
+// Isaac showed me moment.js.  This is a relic of the past.
 function updateClock() {
     var currentTime = new Date();
 
     var currentHours = currentTime.getHours();
     var currentMinutes = currentTime.getMinutes();
     currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-    var timeOfDay = currentHours < 12 ? "am" : "pm";
+    var timeOfDay = currentHours < 12 ? "AM" : "PM";
     currentHours = currentHours > 12 ? currentHours - 12 : currentHours;
     currentHours = currentHours === 0 ? 12 : currentHours;
     var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
@@ -26,10 +26,6 @@ function updateClock() {
 angular.module('unsplashExtention').factory('userPreferences', ['$cookies', function ($cookies) {
     return {
         setCookieData: function setCookieData(settingData) {
-            // if($scope.settings.userName === "Steve"){
-            //   $('.console').show(300);
-            //   $('.console').css('display', 'flex');
-            // }
             settingData = JSON.stringify(settingData);
             $cookies.put('settingKey', settingData);
         },
@@ -41,12 +37,12 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
                 return settings;
             }
             return {
-                userName: "enter name",
+                userName: "____________",
                 timeOption: false,
                 greetingOption: false,
                 weatherOption: false,
                 quoteOption: false,
-                backgroundOption: false
+                forcastOption2: false
             };
         }
     };
@@ -124,25 +120,34 @@ angular.module('unsplashExtention').directive('animateDir', function (userPrefer
                 });
 
                 $('.bottom-center').on('mouseenter', function () {
-                    $('#quoteAuthor').slideDown(500);
+                    $('#quoteAuthor').fadeIn(300);
                 });
                 $('.bottom-center').on('mouseleave', function () {
-                    $('#quoteAuthor').slideUp(500);
+                    $('#quoteAuthor').fadeOut(300);
                 });
 
                 $('.weather').on('mouseenter', function () {
-                    $('#weatherData').slideDown(500);
+                    $('#weatherData').fadeIn(500);
                 });
                 $('.weather').on('mouseleave', function () {
-                    $('#weatherData').slideUp(500);
+                    $('#weatherData').fadeOut(500);
                 });
 
                 $('#hideForecast').on('click', function () {
-                    $('.forecast-container').slideUp(500);
+                    $('.forecast-container').fadeOut(500);
                 });
                 $('#sevenDay').on('click', function () {
-                    $('.forecast-container').slideDown(500);
+                    $('.forecast-container').fadeIn(500);
                     $('.forecast-container').css('display', 'flex');
+                });
+
+                $('.question-icon').on('click', function () {
+                    $('.question-container').fadeIn(500);
+                    $('.question-container').css('display', 'flex');
+                });
+                $('#question-hide').on('click', function () {
+                    $('.question-container').fadeOut(500);
+                    // $('.question-container').css('display', 'none');
                 });
             });
         }
@@ -152,6 +157,9 @@ angular.module('unsplashExtention').directive('animateDir', function (userPrefer
 
 angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, forecastSvc, userPreferences) {
     quoteSvc.getQuote().then(function (response) {
+        if (!response.quoteText) {
+            quoteSvc.getQuote();
+        }
         $scope.quoteText = response.quoteText.trim();
         $scope.quoteAuthor = response.quoteAuthor || "Unknown";
     });
@@ -204,7 +212,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     }
     greeting();
 
-    $scope.time = moment().format('h:mm a');
+    $scope.time = moment().format('h:mm A');
 
     $scope.todayDate = moment().format('MMM Do YYYY');
     $scope.day2 = moment().add(2, 'days').format('MMM Do');
@@ -221,7 +229,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.name = $scope.settings.userName;
 
     $scope.$watch('name', function () {
-        if ($scope.name === "Steve") {
+        if ($scope.name === "my name is Steve") {
             $('.console').show(300);
             $('.console').css('display', 'flex');
         }
@@ -263,19 +271,14 @@ angular.module('unsplashExtention').service('photoSvc', function ($http) {
 'use strict';
 
 angular.module('unsplashExtention').service('quoteSvc', function ($http) {
-  this.getQuote = function () {
-    return $http({
-      method: 'GET',
-      url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
-    }).then(function (response) {
-      if (response.status === 200) {
-        // console.log(response.data.quoteText);
-        // console.log(response.data.quoteAuthor);
-        return response.data;
-      }
-      return "Have a beautiful day!";
-    });
-  };
+    this.getQuote = function () {
+        return $http({
+            method: 'GET',
+            url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+        }).then(function (response) {
+            return response.data;
+        });
+    };
 });
 'use strict';
 

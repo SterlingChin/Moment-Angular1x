@@ -32,26 +32,35 @@ angular.module('unsplashExtention')
                         $('.console').hide(300);
                     });
 
-                    $('.bottom-center').on('mouseenter', function(){
-                      $('#quoteAuthor').slideDown(500);
+                    $('.bottom-center').on('mouseenter', function() {
+                        $('#quoteAuthor').fadeIn(300);
                     });
-                    $('.bottom-center').on('mouseleave', function(){
-                      $('#quoteAuthor').slideUp(500);
-                    });
-
-                    $('.weather').on('mouseenter', function(){
-                      $('#weatherData').slideDown(500);
-                    });
-                    $('.weather').on('mouseleave', function(){
-                      $('#weatherData').slideUp(500);
+                    $('.bottom-center').on('mouseleave', function() {
+                        $('#quoteAuthor').fadeOut(300);
                     });
 
-                    $('#hideForecast').on('click', function(){
-                      $('.forecast-container').slideUp(500);
+                    $('.weather').on('mouseenter', function() {
+                        $('#weatherData').fadeIn(500);
                     });
-                    $('#sevenDay').on('click', function(){
-                      $('.forecast-container').slideDown(500);
-                      $('.forecast-container').css('display', 'flex');
+                    $('.weather').on('mouseleave', function() {
+                        $('#weatherData').fadeOut(500);
+                    });
+
+                    $('#hideForecast').on('click', function() {
+                        $('.forecast-container').fadeOut(500);
+                    });
+                    $('#sevenDay').on('click', function() {
+                        $('.forecast-container').fadeIn(500);
+                        $('.forecast-container').css('display', 'flex');
+                    });
+
+                    $('.question-icon').on('click', function() {
+                        $('.question-container').fadeIn(500);
+                        $('.question-container').css('display', 'flex');
+                    });
+                    $('#question-hide').on('click', function(){
+                      $('.question-container').fadeOut(500);
+                      // $('.question-container').css('display', 'none');
                     });
 
                 });

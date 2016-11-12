@@ -1,5 +1,8 @@
 angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, forecastSvc, userPreferences) {
     quoteSvc.getQuote().then(function(response) {
+      if(!response.quoteText){
+        quoteSvc.getQuote();
+      }
         $scope.quoteText = response.quoteText.trim();
         $scope.quoteAuthor = response.quoteAuthor || "Unknown";
     });
@@ -52,7 +55,8 @@ angular.module('unsplashExtention').controller('mainCtrl', function($scope, quot
     }
     greeting();
 
-$scope.time = moment().format('h:mm a');
+
+$scope.time = moment().format('h:mm A');
 
 $scope.todayDate = moment().format('MMM Do YYYY');
 $scope.day2 = moment().add(2, 'days').format('MMM Do');
@@ -69,7 +73,7 @@ $scope.day6 = moment().add(6, 'days').format('MMM Do');
     $scope.name = $scope.settings.userName;
 
     $scope.$watch('name', function() {
-        if ($scope.name === "Steve") {
+        if ($scope.name === "my name is Steve") {
             $('.console').show(300);
             $('.console').css('display', 'flex');
         }

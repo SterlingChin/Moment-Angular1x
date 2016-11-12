@@ -49,24 +49,30 @@ main {
 
 #clock {
   font-family: "Oswald", sans-serif;
-  font-size: 12vw;
+  font-size: 10vw;
   font-weight: 400;
   color: white;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
 
 .clock {
-  margin: 10px auto; }
+  margin: 0px auto; }
 
 .greeting {
   font-family: "Oswald", sans-serif;
-  font-size: 50px;
+  font-size: 4vw;
   font-weight: 200;
   color: white;
-  margin: 5px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
+  margin: 0;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 5px; }
+
+.date {
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3); }
 
 #container {
-  border-radius: 10px;
   width: 100vw; }
 
 .center {
@@ -77,8 +83,8 @@ main {
 
 .weather {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 10px;
+  right: 10px;
   color: white;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
 
@@ -128,6 +134,21 @@ main {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
   color: white; }
 
+.forecast-container2 {
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 45vw;
+  top: 5px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  text-align: right;
+  font-family: "PT Sans Narrow", sans-serif;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+  color: white; }
+
 .forecast-day {
   font-size: 35px; }
 
@@ -142,7 +163,7 @@ main {
   height: 1vw;
   max-height: 30px;
   min-height: 20px;
-  opacity: 0.5; }
+  opacity: 0.7; }
 
 .settings-menu {
   display: none;
@@ -159,7 +180,6 @@ main {
   top: 0;
   left: 0;
   z-index: 99;
-  /*height: 400px;*/
   width: 250px;
   font-size: 21px;
   color: white;
@@ -170,8 +190,7 @@ main {
 
 .menu-items {
   display: none;
-  text-align: left;
-  /*display: block;*/ }
+  text-align: left; }
 
 .menu-title {
   margin: 10px auto;
@@ -199,7 +218,7 @@ main {
   color: white;
   padding: 5px;
   margin: 0;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3); }
 
 #quoteAuthor {
   display: none; }
@@ -210,16 +229,49 @@ main {
   bottom: 45px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 35vw;
-  height: 5vh;
-  border-radius: 10px; }
+  width: 40vw;
+  height: 5vh; }
 
-.lastOne {
+.question-icon {
+  margin: 0;
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  height: 1vw;
+  max-height: 30px;
+  min-height: 20px;
+  opacity: 0.7;
+  cursor: pointer; }
+
+.question-container {
+  font-family: "PT Sans Narrow", sans-serif;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: justify;
+  display: none;
   position: absolute;
   bottom: 0;
-  left: 0;
+  right: 0;
   z-index: 99;
-  width: 10px;
-  height: 10px; }
+  width: 500px;
+  height: 50vh;
+  font-size: 17px;
+  color: white;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%); }
+
+#question-hide {
+  text-align: right;
+  cursor: pointer; }
+
+.acknowledgements {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  text-align: left;
+  position: absolute; }
 
 /*# sourceMappingURL=maps/styles.css.map */
