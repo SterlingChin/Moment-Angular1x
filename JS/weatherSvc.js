@@ -2,7 +2,7 @@ angular.module('unsplashExtention').service('weatherSvc', function($http) {
     this.getWeather = function() {
         return $http({
             method: 'GET',
-            url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&q=' + geoplugin_city() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+            url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&id=4047656&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
         }).then(function(response) {
             var weatherObject = {};
             if (response.status === 200) {

@@ -13,6 +13,7 @@ $shadowSm: 1px 1px rgba(0,0,0,0.3);
 main {
     background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
     // background-image: url('https://source.unsplash.com/category/nature/1920x1080');
+    // background-color: grey;
     background-size: cover;
     height: 100vh;
     text-align: center;
@@ -253,7 +254,7 @@ main {
     right: 0;
     z-index: 99;
     width: 500px;
-    height: 50vh;
+    height: 266px;
     font-size: 17px;
     color: white;
     flex-direction: column;
