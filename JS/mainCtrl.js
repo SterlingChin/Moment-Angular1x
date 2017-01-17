@@ -75,9 +75,9 @@ $scope.day6 = moment().add(6, 'days').format('MMM Do');
         }
     });
 
-    $scope.latitude = geoplugin_latitude();
-    $scope.longitude = geoplugin_longitude();
-    $scope.city = geoplugin_city();
+    $scope.city = "Provo"
+    // $scope.latitude = geoplugin_latitude();
+    // $scope.longitude = geoplugin_longitude();
     // console.log(geoplugin_city());
     // console.log(geoplugin_longitude());
     // console.log(geoplugin_latitude());

@@ -2,7 +2,7 @@ angular.module('unsplashExtention').service('quoteSvc', function($http){
   this.getQuote = function(){
     return $http({
       method: 'GET',
-      url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+      url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
     }).then(function(response){
       if(response.status === 200){
         // console.log(response.data.quoteText);

@@ -57,7 +57,7 @@ angular.module('unsplashExtention').service('forecastSvc', function ($http) {
     this.getForecast = function () {
         return $http({
             method: 'GET',
-            url: 'http://api.openweathermap.org/data/2.5/forecast/daily?q=' + geoplugin_city() + '&units=imperial&cnt=7&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+            url: 'http://api.openweathermap.org/data/2.5/forecast/daily?id=4047656&units=imperial&cnt=7&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
         }).then(function (response) {
             var forecastObject = {};
             if (response.status === 200) {
@@ -227,9 +227,9 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
         }
     });
 
-    $scope.latitude = geoplugin_latitude();
-    $scope.longitude = geoplugin_longitude();
-    $scope.city = geoplugin_city();
+    $scope.city = "Provo";
+    // $scope.latitude = geoplugin_latitude();
+    // $scope.longitude = geoplugin_longitude();
     // console.log(geoplugin_city());
     // console.log(geoplugin_longitude());
     // console.log(geoplugin_latitude());
@@ -266,7 +266,7 @@ angular.module('unsplashExtention').service('quoteSvc', function ($http) {
   this.getQuote = function () {
     return $http({
       method: 'GET',
-      url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+      url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
     }).then(function (response) {
       if (response.status === 200) {
         // console.log(response.data.quoteText);
@@ -283,7 +283,7 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http) {
     this.getWeather = function () {
         return $http({
             method: 'GET',
-            url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&q=' + geoplugin_city() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+            url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&id=4047656&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
         }).then(function (response) {
             var weatherObject = {};
             if (response.status === 200) {
