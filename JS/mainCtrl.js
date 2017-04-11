@@ -1,7 +1,7 @@
 angular.module('unsplashExtention').controller('mainCtrl', function($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, forecastSvc, userPreferences) {
     quoteSvc.getQuote().then(function(response) {
-        $scope.quoteText = response.quoteText.trim();
-        $scope.quoteAuthor = response.quoteAuthor || "Unknown";
+        $scope.quoteText = response.quote;
+        $scope.quoteAuthor = response.author || "Unknown";
     });
 
     // console.log('http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a');
