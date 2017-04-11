@@ -8,13 +8,9 @@ angular.module('unsplashExtention').service('quoteSvc', function($http){
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json',
             }
-    }).then(function(response){
-      if(response.status === 200){
-        // console.log(response.data.quoteText);
-        // console.log(response.data.quoteAuthor);
-        return response.data;
-      }
-      return "Have a beautiful day!";
-    });
-  };
+        }).then(function(response) {
+            console.log(response.data)
+            return response.data;
+        });
+    };
 });

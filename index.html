@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>This One</title>
+    <title>Moment</title>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Garamond|Exo|Federo|Lobster|Orbitron:900|Yanone+Kaffeesatz:700|Share+Tech+Mono|Oswald|PT+Sans+Narrow" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=David+Libre" rel="stylesheet">
     <link rel="stylesheet" href="./dist/styles.css" media="screen" title="no title">
 </head>
 
-<body onload="updateClock(); setInterval('updateClock()', 1000 )" ng-controller="mainCtrl">
+<body ng-controller="mainCtrl" onload="updateClock(); setInterval('updateClock()', 1000 )">
     <animate-dir settings='settings'></animate-dir>
     <main>
 
@@ -31,7 +31,7 @@
             <span ng-show='settings.timeOption' ng-click='settings.timeOption = !settings.timeOption' class='menu-toggle'>
                     off
                   </span>
-            </span><br>
+            </span><br> 
 
             <span class='menu-items'>
               greeting:
@@ -61,6 +61,15 @@
                       off
                         </span>
             </span><br>
+            <span class='menu-items'>
+                    forecast:
+                    <span ng-show='settings.forecastOption2' ng-click='settings.forecastOption2 = !settings.forecastOption2' class='menu-toggle'>
+                      on
+                        </span>
+            <span ng-hide='settings.forecastOption2' ng-click='settings.forecastOption2 = !settings.forecastOption2' class='menu-toggle'>
+                      off
+                        </span>
+            </span><br>
         </div>
 
         <div class="weather" ng-hide='settings.weatherOption'>
@@ -73,16 +82,18 @@
             <div id='weatherDesc'>
                 {{weatherDesc}}
             </div>
+
             <div id='weatherDesc'>
               
             </div>
+
             <div id='weatherData'>
                 <span>high: {{forecastTempHigh | number: 0}}°</span><br>
                 <span>low: {{forecastTempLow | number: 0}}°</span><br>
                 <span>windspeed: {{weatherSpeed}}mph</span><br>
                 <span>humidity: {{weatherHum}}%</span><br>
                 <span></span><br>
-                <span id='sevenDay' ng-click=''>7 day forecast</span><br>
+                <span id='sevenDay' ng-hide='settings.forecastOption2' ng-click=''>show 7 day forecast</span><br>
             </div>
         </div>
         <div class="forecast-container">
@@ -97,50 +108,120 @@
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh2 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow2 | number: 0}}°</span><br>
                 <span class="forecast-day-data">{{forecastDesc2}}</span><br>
-              </div>
-              <div>
+            </div>
+            <div>
                 <span class="forecast-day-data">{{day3}}</span><br>
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh3 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow3 | number: 0}}°</span><br>
                 <span class="forecast-day-data">{{forecastDesc3}}</span><br>
-              </div>
-              <div>
+            </div>
+            <div>
                 <span class="forecast-day-data">{{day4}}</span><br>
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh4 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow4 | number: 0}}°</span><br>
                 <span class="forecast-day-data">{{forecastDesc4}}</span><br>
-              </div>
-              <div>
+            </div>
+            <div>
                 <span class="forecast-day-data">{{day5}}</span><br>
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh5 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow5 | number: 0}}°</span><br>
                 <span class="forecast-day-data">{{forecastDesc5}}</span><br>
-              </div>
-              <div>
+            </div>
+            <div>
                 <span class="forecast-day-data">{{day6}}</span><br>
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh6 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow6 | number: 0}}°</span><br>
                 <span class="forecast-day-data">{{forecastDesc6}}</span><br>
                 <span></span><br>
-                <span class="forecast-day-data"  id='hideForecast' ng-click='forecastOption'>hide forecast</span>
-              </div>
+                <span class="forecast-day-data" id='hideForecast' ng-click='forecastOption'>hide forecast</span>
+            </div>
+        </div>
+
+        <div class="forecast-container2" ng-show='settings.forecastOption2'>
+            <div>
+                <span class="forecast-day-data">tomorrow</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh1 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow1 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc1}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day2}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh2 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow2 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc2}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day3}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh3 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow3 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc3}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day4}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh4 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow4 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc4}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day5}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh5 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow5 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc5}}</span><br>
+            </div>
+            <div>
+                <span class="forecast-day-data">{{day6}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh6 | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecastTempLow6 | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecastDesc6}}</span><br>
             </div>
         </div>
 
         <div class='center clock' id="container">
-            <div class='greeting'>{{todayDate}}</div>
+            <p ng-hide='settings.timeOption' class='date'>{{todayDate}}</p>
             <p ng-hide='settings.timeOption' id='clock'>{{time}}</p><br>
             <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{name}}.</p>
         </div>
 
-        <div ng-hide='settings.quoteOption' class="quote bottom-center">
-            <span>"{{quoteText}}"</span><br>
-            <span id='quoteAuthor'> ~ {{quoteAuthor}} ~ </span>
+        <div ng-hide='settings.quoteOption' class="bottom-center">
+            <span class="quote">"{{quoteText}}"</span><br>
+            <span class="quote" id='quoteAuthor'> ~ {{quoteAuthor}}</span>
         </div>
         <div>
-            <img class="console" src="./icons/answer-42.gif" alt="forSteve" />
+            <img class="console" src="./icons/answer-42.gif" alt="heart-of-gold" />
         </div>
-        <div class="lastOne">
+        <div class="question-container">
+            <p><u>Welcome to Moment!</u></p><br>
+            <p>
+                Thank you for adding Moment to your Chrome Extensions. What Moment gives you is complete control over your new tab environment. In the upper left hand corner you'll see the settings cog. In the settings menu you can toggle any one of the elements on or
+                off. By default the 7 day forecast is toggled off. This is because you can reach the 7 day forecast by hovering over the current weather in the upper right hand corner and then clicking on the "show 7 day forecast" option. </p><br>
+            <p>
+                I hope you enjoy Moment! Moment will always be free. If you would like to see specific features added or would like to hire me, please send me an email at <span>sterling.chin@gmail.com</span>.
+            </p><br>
+            <p>
+                If you like Moment, please consider making a donation. Thank you!
+            </p><br>
+            <p align-content="right" id='question-hide'>
+                <span><u>hide</u></span>
+            </p>
+        </div>
+
+        <div class="acknowledgements">
+            <p><u>
+            Acknowledgements
+          </u></p><br>
+            <p>
+                <ul>API's used
+                    <li>www.openweathermap.org</li>
+                    <li>www.forismatic.com</li>
+                    <li>www.unsplash.com</li>
+                    <li>www.momentjs.com</li>
+                </ul>
+                API's: www.openweathermap.org
+            </p>
+        </div>
+
+        <div>
+            <img class="question-icon" src="./icons/question-256.png" alt="questions" ng-click ''/>
         </div>
 
     </main>
