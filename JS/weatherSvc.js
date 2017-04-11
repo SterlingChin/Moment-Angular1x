@@ -12,7 +12,7 @@ angular.module('unsplashExtention').service('weatherSvc', function($http) {
                 weatherObject.hum = response.data.main.humidity;
                 weatherObject.pressure = response.data.main.pressure;
                 weatherObject.windSpeed = response.data.wind.speed;
-
+                console.log(response)
                 return weatherObject;
             }
             return "It's broken, sorry!";

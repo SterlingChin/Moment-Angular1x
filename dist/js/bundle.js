@@ -166,15 +166,19 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     });
 
     // console.log('http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a');
-
-    weatherSvc.getWeather().then(function (weatherObject) {
-        $scope.weatherTemp = weatherObject.temp;
-        $scope.weatherIcon = weatherObject.icon;
-        $scope.weatherDesc = weatherObject.desc;
-        $scope.weatherHum = weatherObject.hum;
-        $scope.weatherPres = weatherObject.pressure;
-        $scope.weatherSpeed = weatherObject.windSpeed;
-    });
+    function getWeather() {
+        weatherSvc.getWeather().then(function (weatherObject) {
+            $scope.weatherTemp = weatherObject.temp;
+            $scope.weatherIcon = weatherObject.icon;
+            $scope.weatherDesc = weatherObject.desc;
+            $scope.weatherHum = weatherObject.hum;
+            $scope.weatherPres = weatherObject.pressure;
+            $scope.weatherSpeed = weatherObject.windSpeed;
+            console.log('weather ping');
+        });
+    };
+    getWeather();
+    var myInterval = setInterval(getWeather, 1800000);
 
     forecastSvc.getForecast().then(function (forecastObject) {
         $scope.forecastTempHigh = forecastObject.tempHigh;
@@ -301,7 +305,7 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http) {
                 weatherObject.hum = response.data.main.humidity;
                 weatherObject.pressure = response.data.main.pressure;
                 weatherObject.windSpeed = response.data.wind.speed;
-
+                console.log(response);
                 return weatherObject;
             }
             return "It's broken, sorry!";
