@@ -242,8 +242,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     // console.log(geoplugin_city());
     // console.log(geoplugin_longitude());
     // console.log(geoplugin_latitude());
-
-    //call back function which calls back the state to change the background.
 });
 'use strict';
 
