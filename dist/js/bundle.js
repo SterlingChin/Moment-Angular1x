@@ -158,9 +158,12 @@ angular.module('unsplashExtention').directive('animateDir', function (userPrefer
 
 angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, forecastSvc, userPreferences) {
     quoteSvc.getQuote().then(function (response) {
+<<<<<<< HEAD
         if (!response.quoteText) {
             quoteSvc.getQuote();
         }
+=======
+>>>>>>> master
         $scope.quoteText = response.quote;
         $scope.quoteAuthor = response.author || "Unknown";
     });
@@ -270,6 +273,7 @@ angular.module('unsplashExtention').service('photoSvc', function ($http) {
 'use strict';
 
 angular.module('unsplashExtention').service('quoteSvc', function ($http) {
+<<<<<<< HEAD
     this.getQuote = function () {
         return $http({
             method: 'GET',
@@ -285,6 +289,26 @@ angular.module('unsplashExtention').service('quoteSvc', function ($http) {
             return response.data;
         });
     };
+=======
+  this.getQuote = function () {
+    return $http({
+      method: 'GET',
+      url: "https://andruxnet-random-famous-quotes.p.mashape.com/",
+      headers: {
+        'X-Mashape-Key': 'N76CGzg78EmshZSF5CRPvHI8T6mpp1RnzVIjsn7bBk0CjlAu26',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      }
+    }).then(function (response) {
+      if (response.status === 200) {
+        // console.log(response.data.quoteText);
+        // console.log(response.data.quoteAuthor);
+        return response.data;
+      }
+      return "Have a beautiful day!";
+    });
+  };
+>>>>>>> master
 });
 'use strict';
 
