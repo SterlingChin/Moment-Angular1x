@@ -161,8 +161,8 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
         if (!response.quoteText) {
             quoteSvc.getQuote();
         }
-        $scope.quoteText = response.quoteText.trim();
-        $scope.quoteAuthor = response.quoteAuthor || "Unknown";
+        $scope.quoteText = response.quote;
+        $scope.quoteAuthor = response.author || "Unknown";
     });
 
     // console.log('http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a');
@@ -275,7 +275,13 @@ angular.module('unsplashExtention').service('quoteSvc', function ($http) {
     this.getQuote = function () {
         return $http({
             method: 'GET',
-            url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+            // url: "http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en"
+            url: "https://andruxnet-random-famous-quotes.p.mashape.com/",
+            headers: {
+                'X-Mashape-Key': 'N76CGzg78EmshZSF5CRPvHI8T6mpp1RnzVIjsn7bBk0CjlAu26',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+            }
         }).then(function (response) {
             console.log(response.data);
             return response.data;
