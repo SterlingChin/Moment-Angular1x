@@ -8,6 +8,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   });
 
   function getWeather() {
+    console.log('pinged weather')
     weatherSvc.getLocation().then(response => {
       $scope.city = response.city
       return response.postal
