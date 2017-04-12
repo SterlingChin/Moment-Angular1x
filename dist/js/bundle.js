@@ -37,7 +37,7 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
                 return settings;
             }
             return {
-                userName: "____________",
+                userName: "enter name",
                 timeOption: false,
                 greetingOption: false,
                 weatherOption: false,
@@ -47,45 +47,6 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
         }
     };
 }]);
-'use strict';
-
-angular.module('unsplashExtention').service('forecastSvc', function ($http) {
-    this.getForecast = function () {
-        return $http({
-            method: 'GET',
-            url: 'http://api.openweathermap.org/data/2.5/forecast/daily?id=4047656&units=imperial&cnt=7&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
-        }).then(function (response) {
-            var forecastObject = {};
-            var data = response.data.list;
-            if (response.status === 200) {
-                console.log(response.data);
-                forecastObject.tempHigh = data[0].temp.max;
-                forecastObject.tempLow = data[0].temp.min;
-                forecastObject.tempHigh1 = data[1].temp.max;
-                forecastObject.tempLow1 = data[1].temp.min;
-                forecastObject.desc1 = data[1].weather[0].main;
-                forecastObject.tempHigh2 = data[2].temp.max;
-                forecastObject.tempLow2 = data[2].temp.min;
-                forecastObject.desc2 = data[2].weather[0].main;
-                forecastObject.tempHigh3 = data[3].temp.max;
-                forecastObject.tempLow3 = data[3].temp.min;
-                forecastObject.desc3 = data[3].weather[0].main;
-                forecastObject.tempHigh4 = data[4].temp.max;
-                forecastObject.tempLow4 = data[4].temp.min;
-                forecastObject.desc4 = data[4].weather[0].main;
-                forecastObject.tempHigh5 = data[5].temp.max;
-                forecastObject.tempLow5 = data[5].temp.min;
-                forecastObject.desc5 = data[5].weather[0].main;
-                forecastObject.tempHigh6 = data[6].temp.max;
-                forecastObject.tempLow6 = data[6].temp.min;
-                forecastObject.desc6 = data[6].weather[0].main;
-                console.log(forecastObject);
-                return forecastObject;
-            }
-            return "It's broken, sorry! ";
-        });
-    };
-});
 'use strict';
 
 angular.module('unsplashExtention').directive('animateDir', function (userPreferences) {
@@ -156,31 +117,29 @@ angular.module('unsplashExtention').directive('animateDir', function (userPrefer
 });
 'use strict';
 
-angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, forecastSvc, userPreferences) {
-    quoteSvc.getQuote().then(function (response) {
-        if (!response.quoteText) {
-            quoteSvc.getQuote();
-        }
-        $scope.quoteText = response.quote;
-        $scope.quoteAuthor = response.author || "Unknown";
-    });
+angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, userPreferences) {
+  quoteSvc.getQuote().then(function (response) {
+    if (!response.quoteText) {
+      quoteSvc.getQuote();
+    }
+    $scope.quoteText = response.quote;
+    $scope.quoteAuthor = response.author || "Unknown";
+  });
 
-    // console.log('http://api.openweathermap.org/data/2.5/weather?lat=' + geoplugin_latitude() + '&lon=' + geoplugin_longitude() + '&APPID=93491e6dadbe8a2ac36dc3e3855f670a');
-    function getWeather() {
-        weatherSvc.getWeather().then(function (weatherObject) {
-            $scope.weatherTemp = weatherObject.temp;
-            $scope.weatherIcon = weatherObject.icon;
-            $scope.weatherDesc = weatherObject.desc;
-            $scope.weatherHum = weatherObject.hum;
-            $scope.weatherPres = weatherObject.pressure;
-            $scope.weatherSpeed = weatherObject.windSpeed;
-            console.log('weather ping');
-        });
-    };
-    getWeather();
-    var myInterval = setInterval(getWeather, 1800000);
-
-    forecastSvc.getForecast().then(function (forecastObject) {
+  function getWeather() {
+    weatherSvc.getLocation().then(function (response) {
+      $scope.city = response.city;
+      return response.postal;
+    }).then(function (response) {
+      weatherSvc.getWeather(response).then(function (weatherObject) {
+        $scope.weatherTemp = weatherObject.temp;
+        $scope.weatherIcon = weatherObject.icon;
+        $scope.weatherDesc = weatherObject.desc;
+        $scope.weatherHum = weatherObject.hum;
+        $scope.weatherPres = weatherObject.pressure;
+        $scope.weatherSpeed = weatherObject.windSpeed;
+      });
+      weatherSvc.getForecast(response).then(function (forecastObject) {
         $scope.forecastTempHigh = forecastObject.tempHigh;
         $scope.forecastTempLow = forecastObject.tempLow;
         $scope.forecastTempHigh1 = forecastObject.tempHigh1;
@@ -201,51 +160,45 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
         $scope.forecastTempHigh6 = forecastObject.tempHigh6;
         $scope.forecastTempLow6 = forecastObject.tempLow6;
         $scope.forecastDesc6 = forecastObject.desc6;
+      });
     });
+  }
+  getWeather();
+  var myInterval = setInterval(getWeather, 1800000);
 
-    function greeting() {
-        var currentTime = new Date();
-        console.log(currentTime);
-        var currentHours = currentTime.getHours();
-        if (currentHours < 12) {
-            $scope.greeting = "Good Morning";
-        } else if (17 > currentHours && currentHours >= 12) {
-            $scope.greeting = "Good Afternoon";
-        } else {
-            $scope.greeting = "Good Evening";
-        }
+  function greeting() {
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    if (currentHours < 12) {
+      $scope.greeting = "Good Morning";
+    } else if (17 > currentHours && currentHours >= 12) {
+      $scope.greeting = "Good Afternoon";
+    } else {
+      $scope.greeting = "Good Evening";
     }
-    greeting();
+  }
+  greeting();
 
-    $scope.time = moment().format('h:mm A');
+  $scope.time = moment().format('h:mm A');
 
-    $scope.todayDate = moment().format('MMM Do YYYY');
-    $scope.day2 = moment().add(2, 'days').format('MMM Do');
-    $scope.day3 = moment().add(3, 'days').format('MMM Do');
-    $scope.day4 = moment().add(4, 'days').format('MMM Do');
-    $scope.day5 = moment().add(5, 'days').format('MMM Do');
-    $scope.day6 = moment().add(6, 'days').format('MMM Do');
-    // $scope.newBackground = photoSvc.getPhoto().then(function(response) {
-    //     return response;
-    // });
+  $scope.todayDate = moment().format('MMM Do YYYY');
+  $scope.day2 = moment().add(2, 'days').format('MMM Do');
+  $scope.day3 = moment().add(3, 'days').format('MMM Do');
+  $scope.day4 = moment().add(4, 'days').format('MMM Do');
+  $scope.day5 = moment().add(5, 'days').format('MMM Do');
+  $scope.day6 = moment().add(6, 'days').format('MMM Do');
 
-    $scope.settings = userPreferences.userSettings();
+  $scope.settings = userPreferences.userSettings();
 
-    $scope.name = $scope.settings.userName;
+  weatherSvc.zip = $scope.settings.zipcode;
+  $scope.name = $scope.settings.userName;
 
-    $scope.$watch('name', function () {
-        if ($scope.name === "my name is Steve") {
-            $('.console').show(300);
-            $('.console').css('display', 'flex');
-        }
-    });
-
-    // $scope.latitude = geoplugin_latitude();
-    // $scope.longitude = geoplugin_longitude();
-    $scope.city = "Provo";
-    // console.log(geoplugin_city());
-    // console.log(geoplugin_longitude());
-    // console.log(geoplugin_latitude());
+  $scope.$watch('name', function () {
+    if ($scope.name === "my name is Steve") {
+      $('.console').show(300);
+      $('.console').css('display', 'flex');
+    }
+  });
 });
 'use strict';
 
@@ -284,18 +237,30 @@ angular.module('unsplashExtention').service('quoteSvc', function ($http) {
                 'Accept': 'application/json'
             }
         }).then(function (response) {
-            console.log(response.data);
             return response.data;
         });
     };
 });
 'use strict';
 
-angular.module('unsplashExtention').service('weatherSvc', function ($http) {
-    this.getWeather = function () {
+angular.module('unsplashExtention').service('weatherSvc', function ($http, userPreferences) {
+    var BASE_URL1 = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=';
+    var BASE_URL2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?zip=';
+    var APP_ID = '&APPID=93491e6dadbe8a2ac36dc3e3855f670a';
+
+    this.getLocation = function () {
         return $http({
             method: 'GET',
-            url: 'http://api.openweathermap.org/data/2.5/weather?units=imperial&id=4047656&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+            url: "https://ipinfo.io/json"
+        }).then(function (response) {
+            return response.data;
+        });
+    };
+
+    this.getWeather = function (zip) {
+        return $http({
+            method: 'GET',
+            url: BASE_URL1 + zip + APP_ID
         }).then(function (response) {
             var weatherObject = {};
             if (response.status === 200) {
@@ -305,10 +270,43 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http) {
                 weatherObject.hum = response.data.main.humidity;
                 weatherObject.pressure = response.data.main.pressure;
                 weatherObject.windSpeed = response.data.wind.speed;
-                console.log(response);
                 return weatherObject;
             }
             return "It's broken, sorry!";
+        });
+    };
+
+    this.getForecast = function (zip) {
+        return $http({
+            method: 'GET',
+            url: BASE_URL2 + zip + '&units=imperial&cnt=7' + APP_ID
+        }).then(function (response) {
+            var forecastObject = {};
+            var data = response.data.list;
+            if (response.status === 200) {
+                forecastObject.tempHigh = data[0].temp.max;
+                forecastObject.tempLow = data[0].temp.min;
+                forecastObject.tempHigh1 = data[1].temp.max;
+                forecastObject.tempLow1 = data[1].temp.min;
+                forecastObject.desc1 = data[1].weather[0].main;
+                forecastObject.tempHigh2 = data[2].temp.max;
+                forecastObject.tempLow2 = data[2].temp.min;
+                forecastObject.desc2 = data[2].weather[0].main;
+                forecastObject.tempHigh3 = data[3].temp.max;
+                forecastObject.tempLow3 = data[3].temp.min;
+                forecastObject.desc3 = data[3].weather[0].main;
+                forecastObject.tempHigh4 = data[4].temp.max;
+                forecastObject.tempLow4 = data[4].temp.min;
+                forecastObject.desc4 = data[4].weather[0].main;
+                forecastObject.tempHigh5 = data[5].temp.max;
+                forecastObject.tempLow5 = data[5].temp.min;
+                forecastObject.desc5 = data[5].weather[0].main;
+                forecastObject.tempHigh6 = data[6].temp.max;
+                forecastObject.tempLow6 = data[6].temp.min;
+                forecastObject.desc6 = data[6].weather[0].main;
+                return forecastObject;
+            }
+            return "It's broken, sorry! ";
         });
     };
 });

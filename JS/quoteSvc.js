@@ -9,7 +9,6 @@ angular.module('unsplashExtention').service('quoteSvc', function($http){
                 'Accept': 'application/json',
             }
         }).then(function(response) {
-            console.log(response.data)
             return response.data;
         });
     };
