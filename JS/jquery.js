@@ -1,5 +1,9 @@
 angular.module('unsplashExtention')
     .directive('animateDir', function(userPreferences) {
+//   __    _      _   _       __   _____  _   ___   _      __  
+//  / /\  | |\ | | | | |\/|  / /\   | |  | | / / \ | |\ | ( (` 
+// /_/--\ |_| \| |_| |_|  | /_/--\  |_|  |_| \_\_/ |_| \| _)_) 
+
         return {
             scope: {
                 settings: "="

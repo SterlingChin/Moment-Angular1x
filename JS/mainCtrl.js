@@ -12,9 +12,10 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.quoteAuthor = response.author || "Unknown";
   });
 
-  //  _       ____   __   _____  _     ____  ___  
-  // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
-  //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \  
+//  _       ____   __   _____  _     ____  ___  
+// \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
+//  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
+                                   
 
   function getWeather() {
     console.log('pinged weather')

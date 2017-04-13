@@ -1,7 +1,7 @@
 angular.module('unsplashExtention').service('weatherSvc', function($http, userPreferences) {
     var BASE_URL1 = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip='
     var BASE_URL2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?zip='
-    var APP_ID = '&APPID=93491e6dadbe8a2ac36dc3e3855f670a'
+    var APP_ID = '&APPID=' + config.appSecret
 
     this.getLocation = ()=>{
         return $http({

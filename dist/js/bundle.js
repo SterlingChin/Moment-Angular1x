@@ -1,6 +1,17 @@
 "use strict";
 
 angular.module('unsplashExtention', ["ngCookies"]);
+
+//      _            _ _                  _     _                            
+//  ___| |_ ___ _ __| (_)_ __   __ _  ___| |__ (_)_ __    ___ ___  _ __ ___  
+// / __| __/ _ \ '__| | | '_ \ / _` |/ __| '_ \| | '_ \  / __/ _ \| '_ ` _ \ 
+// \__ \ ||  __/ |  | | | | | | (_| | (__| | | | | | | || (_| (_) | | | | | |
+// |___/\__\___|_|  |_|_|_| |_|\__, |\___|_| |_|_|_| |_(_)___\___/|_| |_| |_|
+//                             |___/                                  
+
+//Ogre
+//Broadway KB
+//JS Stick Letters
 "use strict";
 
 function updateClock() {
@@ -44,6 +55,10 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
 'use strict';
 
 angular.module('unsplashExtention').directive('animateDir', function (userPreferences) {
+    //   __    _      _   _       __   _____  _   ___   _      __  
+    //  / /\  | |\ | | | | |\/|  / /\   | |  | | / / \ | |\ | ( (` 
+    // /_/--\ |_| \| |_| |_|  | /_/--\  |_|  |_| \_\_/ |_| \| _)_) 
+
     return {
         scope: {
             settings: "="
@@ -127,7 +142,8 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
 
   //  _       ____   __   _____  _     ____  ___  
   // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
-  //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \  
+  //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
+
 
   function getWeather() {
     console.log('pinged weather');
@@ -270,7 +286,7 @@ angular.module('unsplashExtention').service('quoteSvc', function ($http) {
 angular.module('unsplashExtention').service('weatherSvc', function ($http, userPreferences) {
     var BASE_URL1 = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=';
     var BASE_URL2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?zip=';
-    var APP_ID = '&APPID=93491e6dadbe8a2ac36dc3e3855f670a';
+    var APP_ID = '&APPID=' + config.appSecret;
 
     this.getLocation = function () {
         return $http({
