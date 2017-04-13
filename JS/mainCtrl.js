@@ -1,4 +1,4 @@
-angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, userPreferences) {
+angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, nameSvc, weatherSvc, userPreferences) {
   quoteSvc.getQuote().then(function (response) {
     if (!response.quoteText) {
       quoteSvc.getQuote();
@@ -83,6 +83,12 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     if ($scope.name === "my name is Steve") {
       $('.console').show(300);
       $('.console').css('display', 'flex');
+    }
+  });
+  $scope.$watch('name', function () {
+    if ($scope.name === "enter name") {
+      $('.question-container').show(300);
+      $('.question-container').css('display', 'flex');
     }
   });
 

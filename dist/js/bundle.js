@@ -3,12 +3,6 @@
 angular.module('unsplashExtention', ["ngCookies"]);
 "use strict";
 
-// Not needed function...kept here because I may need it later
-// function init() {
-//     timeDisplay = document.createTextNode("");
-//     document.getElementById("clock").appendChild(timeDisplay);
-// }
-// Isaac showed me moment.js.  This is a relic of the past.
 function updateClock() {
     var currentTime = new Date();
 
@@ -117,7 +111,7 @@ angular.module('unsplashExtention').directive('animateDir', function (userPrefer
 });
 'use strict';
 
-angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, photoSvc, nameSvc, weatherSvc, userPreferences) {
+angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, nameSvc, weatherSvc, userPreferences) {
   quoteSvc.getQuote().then(function (response) {
     if (!response.quoteText) {
       quoteSvc.getQuote();
@@ -200,6 +194,12 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
       $('.console').css('display', 'flex');
     }
   });
+  $scope.$watch('name', function () {
+    if ($scope.name === "enter name") {
+      $('.question-container').show(300);
+      $('.question-container').css('display', 'flex');
+    }
+  });
 });
 'use strict';
 
@@ -211,19 +211,6 @@ angular.module('unsplashExtention').service('nameSvc', function () {
   this.setName = function (name) {
     localStorage.setItem('name', name);
   };
-});
-'use strict';
-
-angular.module('unsplashExtention').service('photoSvc', function ($http) {
-  //   this.getPhoto = function(){
-  //     return $http({
-  //       method: 'GET',
-  //       url: "https://source.unsplash.com/category/nature/1920x1080"
-  //     }).then(function(response){
-  //         return response;
-  //       });
-  //
-  // };
 });
 'use strict';
 

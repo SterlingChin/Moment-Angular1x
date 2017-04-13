@@ -1,9 +1,3 @@
-// Not needed function...kept here because I may need it later
-// function init() {
-//     timeDisplay = document.createTextNode("");
-//     document.getElementById("clock").appendChild(timeDisplay);
-// }
-// Isaac showed me moment.js.  This is a relic of the past.
 function updateClock() {
     var currentTime = new Date();
 
