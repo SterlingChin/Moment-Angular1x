@@ -1,4 +1,9 @@
 angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, nameSvc, weatherSvc, userPreferences) {
+
+  //  ___    _     ___  _____  ____  __  
+  // / / \  | | | / / \  | |  | |_  ( (` 
+  // \_\_\\ \_\_/ \_\_/  |_|  |_|__ _)_)                             
+
   quoteSvc.getQuote().then(function (response) {
     if (!response.quoteText) {
       quoteSvc.getQuote();
@@ -6,6 +11,10 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.quoteText = response.quote;
     $scope.quoteAuthor = response.author || "Unknown";
   });
+
+  //  _       ____   __   _____  _     ____  ___  
+  // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
+  //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \  
 
   function getWeather() {
     console.log('pinged weather')
@@ -50,9 +59,12 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   getWeather()
   var myInterval = setInterval(getWeather, 1800000)
 
+  //  __    ___   ____  ____ _____  _   _      __   
+  // / /`_ | |_) | |_  | |_   | |  | | | |\ | / /`_ 
+  // \_\_/ |_| \ |_|__ |_|__  |_|  |_| |_| \| \_\_/ 
 
   function greeting() {
-    var currentTime = new Date(); 
+    var currentTime = new Date();
     var currentHours = currentTime.getHours();
     if (currentHours < 12) {
       $scope.greeting = "Good Morning";
@@ -63,7 +75,24 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     }
   }
   greeting();
+  $scope.name = $scope.settings.userName;
 
+  //  __    _     ___   __    _    
+  // / /`  | |   / / \ / /`  | |_/ 
+  // \_\_, |_|__ \_\_/ \_\_, |_| \ 
+
+  function updateClock() {
+    var currentTime = new Date();
+
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+    var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+    currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+    currentHours = (currentHours === 0) ? 12 : currentHours;
+    var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+    document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+  }
 
   $scope.time = moment().format('h:mm A');
 
@@ -74,10 +103,15 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   $scope.day5 = moment().add(5, 'days').format('MMM Do');
   $scope.day6 = moment().add(6, 'days').format('MMM Do');
 
+  //  __   ____ _____ _____  _   _      __    __  
+  // ( (` | |_   | |   | |  | | | |\ | / /`_ ( (` 
+  // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
+
   $scope.settings = userPreferences.userSettings();
 
-  weatherSvc.zip = $scope.settings.zipcode
-  $scope.name = $scope.settings.userName;
+  //  _        __   _____  __    _     ____  __  
+  // \ \    / / /\   | |  / /`  | |_| | |_  ( (` 
+  //  \_\/\/ /_/--\  |_|  \_\_, |_| | |_|__ _)_) 
 
   $scope.$watch('name', function () {
     if ($scope.name === "my name is Steve") {
@@ -91,5 +125,4 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
       $('.question-container').css('display', 'flex');
     }
   });
-
 });
