@@ -75,7 +75,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     }
   }
   greeting();
-  $scope.name = $scope.settings.userName;
+ 
 
   //  __    _     ___   __    _    
   // / /`  | |   / / \ / /`  | |_/ 
@@ -108,6 +108,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
 
   $scope.settings = userPreferences.userSettings();
+   $scope.name = $scope.settings.userName;
 
   //  _        __   _____  __    _     ____  __  
   // \ \    / / /\   | |  / /`  | |_| | |_  ( (` 
