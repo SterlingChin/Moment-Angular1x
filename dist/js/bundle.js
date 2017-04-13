@@ -62,6 +62,8 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
 
   $scope.settings = userPreferences.userSettings();
+  $scope.zipcode = $scope.settings.zipcode;
+  $scope.name = $scope.settings.userName;
 
   //  ___    _     ___  _____  ____  __  
   // / / \  | | | / / \  | |  | |_  ( (` 
@@ -146,7 +148,7 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     var currentHours = currentTime.getHours();
     if (currentHours < 12) {
       $scope.greeting = "Good Morning";
-    } else if (17 > currentHours && currentHours >= 12) {
+    } else if (18 > currentHours && currentHours >= 12) {
       $scope.greeting = "Good Afternoon";
     } else {
       $scope.greeting = "Good Evening";
