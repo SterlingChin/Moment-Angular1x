@@ -2,13 +2,26 @@ angular.module('unsplashExtention').service('weatherSvc', function($http, userPr
     var BASE_URL1 = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip='
     var BASE_URL2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?zip='
     var APP_ID = '&APPID=' + config.appSecret
-
+    var LOCATION = {
+        postal: 84604,
+        city: 'Provo'
+    }
+console.log(LOCATION)
     this.getLocation = ()=>{
         return $http({
             method: 'GET',
             url: "https://ipinfo.io/json"
         }).then(response => {
+            console.log(response)
+            if(response.status !== 200){
+            console.log(LOCATION)
+            return LOCATION
+            } else {
+            LOCATION.postal = response.data.postal
+            LOCATION.city = response.data.city
+            console.log(LOCATION)
             return response.data
+            }
         })
     }
 
@@ -17,15 +30,17 @@ angular.module('unsplashExtention').service('weatherSvc', function($http, userPr
             method: 'GET',
             url: BASE_URL1 + zip + APP_ID
         }).then(function(response) {
-            var weatherObject = {};
+            // var weatherObject = {};
             if (response.status === 200) {
-                weatherObject.temp = response.data.main.temp;
-                weatherObject.icon = response.data.weather[0].icon;
-                weatherObject.desc = response.data.weather[0].description;
-                weatherObject.hum = response.data.main.humidity;
-                weatherObject.pressure = response.data.main.pressure;
-                weatherObject.windSpeed = response.data.wind.speed;
-                return weatherObject;
+                console.log(response.data)
+                // weatherObject.temp = response.data.main.temp;
+                // weatherObject.icon = response.data.weather[0].icon;
+                // weatherObject.desc = response.data.weather[0].description;
+                // weatherObject.hum = response.data.main.humidity;
+                // weatherObject.pressure = response.data.main.pressure;
+                // weatherObject.windSpeed = response.data.wind.speed;
+                // return weatherObject;
+                return response.data
             }
             return "It's broken, sorry!";
         });

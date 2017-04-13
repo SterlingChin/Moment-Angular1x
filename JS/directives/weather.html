@@ -1,0 +1,24 @@
+<div class="weather" ng-hide='settings.weatherOption'>
+            <div id='weatherCity'>
+                {{weather.name}}
+            </div>
+            <div id='weatherTemp'>
+                {{weather.main.temp | number: 0}}°
+            </div>
+            <div id='weatherDesc'>
+                {{weather.weather[0].description}}
+            </div>
+
+            <div id='weatherDesc'>
+              
+            </div>
+
+            <div id='weatherData'>
+                <span>high: {{forecastTempHigh | number: 0}}°</span><br>
+                <span>low: {{forecastTempLow | number: 0}}°</span><br>
+                <span>windspeed: {{weather.wind.speed}}mph</span><br>
+                <span>humidity: {{weather.main.humidity}}%</span><br>
+                <span></span><br>
+                <span id='sevenDay' ng-hide='settings.forecastOption2' ng-click=''>show 7 day forecast</span><br>
+            </div>
+        </div>

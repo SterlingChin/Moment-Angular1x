@@ -1,5 +1,12 @@
 angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, nameSvc, weatherSvc, userPreferences) {
 
+  //  __   ____ _____ _____  _   _      __    __  
+  // ( (` | |_   | |   | |  | | | |\ | / /`_ ( (` 
+  // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
+
+  $scope.settings = userPreferences.userSettings();
+
+
   //  ___    _     ___  _____  ____  __  
   // / / \  | | | / / \  | |  | |_  ( (` 
   // \_\_\\ \_\_/ \_\_/  |_|  |_|__ _)_)                             
@@ -12,26 +19,34 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.quoteAuthor = response.author || "Unknown";
   });
 
+//  _     ___   __     __   _____  _   ___   _     
+// | |   / / \ / /`   / /\   | |  | | / / \ | |\ | 
+// |_|__ \_\_/ \_\_, /_/--\  |_|  |_| \_\_/ |_| \| 
+
+
+
 //  _       ____   __   _____  _     ____  ___  
 // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
 //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
                                    
 
-  function getWeather() {
-    console.log('pinged weather')
-    weatherSvc.getLocation().then(response => {
-      $scope.city = response.city
-      return response.postal
-    }).then(response => {
-        weatherSvc.getWeather(response).then(function (weatherObject) {
-          $scope.weatherTemp = weatherObject.temp;
-          $scope.weatherIcon = weatherObject.icon;
-          $scope.weatherDesc = weatherObject.desc;
-          $scope.weatherHum = weatherObject.hum;
-          $scope.weatherPres = weatherObject.pressure;
-          $scope.weatherSpeed = weatherObject.windSpeed;
+$scope.getWeather = function(zipcode) {
+    // console.log('pinged weather')
+    // weatherSvc.getLocation().then(response => {
+    //     console.log(response)
+    //   $scope.city = response.city
+    //   return response.postal
+    // }).then(() => {
+        weatherSvc.getWeather(zipcode).then(function (response) {
+            $scope.weather = response;
+        //   $scope.weatherTemp = weatherObject.temp;
+        //   $scope.weatherIcon = weatherObject.icon;
+        //   $scope.weatherDesc = weatherObject.desc;
+        //   $scope.weatherHum = weatherObject.hum;
+        //   $scope.weatherPres = weatherObject.pressure;
+        //   $scope.weatherSpeed = weatherObject.windSpeed;
         })
-        weatherSvc.getForecast(response).then(function (forecastObject) {
+        weatherSvc.getForecast(zipcode).then(function (forecastObject) {
           $scope.forecastTempHigh = forecastObject.tempHigh;
           $scope.forecastTempLow = forecastObject.tempLow;
           $scope.forecastTempHigh1 = forecastObject.tempHigh1;
@@ -53,13 +68,20 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
           $scope.forecastTempLow6 = forecastObject.tempLow6;
           $scope.forecastDesc6 = forecastObject.desc6;
         });
-      }
-
-    );
+    //   });
   }
-  getWeather()
-  var myInterval = setInterval(getWeather, 1800000)
-
+  console.log($scope.settings.zipcode)
+  var getZip = function(){
+    if($scope.settings.zipcode !== 0){
+      $scope.getWeather($scope.settings.zipcode)
+      return;
+    } else {
+        return "";
+    }
+  }
+  getZip()
+//   var myInterval = setInterval($scope.getWeather, 1000)
+console.log('hello')
   //  __    ___   ____  ____ _____  _   _      __   
   // / /`_ | |_) | |_  | |_   | |  | | | |\ | / /`_ 
   // \_\_/ |_| \ |_|__ |_|__  |_|  |_| |_| \| \_\_/ 
@@ -104,12 +126,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   $scope.day5 = moment().add(5, 'days').format('MMM Do');
   $scope.day6 = moment().add(6, 'days').format('MMM Do');
 
-  //  __   ____ _____ _____  _   _      __    __  
-  // ( (` | |_   | |   | |  | | | |\ | / /`_ ( (` 
-  // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
-
-  $scope.settings = userPreferences.userSettings();
-   $scope.name = $scope.settings.userName;
 
   //  _        __   _____  __    _     ____  __  
   // \ \    / / /\   | |  / /`  | |_| | |_  ( (` 

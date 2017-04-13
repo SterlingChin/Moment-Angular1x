@@ -15,7 +15,6 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     print = require('gulp-print'),
     babel = require('gulp-babel');
-    //babel-preset-es2015
 
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
@@ -64,3 +63,5 @@ gulp.task('build', [ 'clean', 'build-css', 'build-js'], function() {
 gulp.task('watch', function() {
     return gulp.watch(['./index.html', './styles/*.*css', './js/**/*.js'], ['build']);
 });
+
+gulp.task('default', ['clean', 'build-js', 'build-css', 'watch'])

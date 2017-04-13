@@ -13,6 +13,7 @@ angular.module('unsplashExtention').factory('userPreferences', ['$cookies', func
                 }
                 return {
                     userName: "enter name",
+                    zipcode: 0,
                     timeOption: false,
                     greetingOption: false,
                     weatherOption: false,
