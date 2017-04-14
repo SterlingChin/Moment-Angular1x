@@ -77,11 +77,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.quoteAuthor = response.author || "Unknown";
   });
 
-  //  _     ___   __     __   _____  _   ___   _     
-  // | |   / / \ / /`   / /\   | |  | | / / \ | |\ | 
-  // |_|__ \_\_/ \_\_, /_/--\  |_|  |_| \_\_/ |_| \| 
-
-
   //  _       ____   __   _____  _     ____  ___  
   // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
   //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
@@ -233,44 +228,14 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http, userP
     var BASE_URL1 = 'http://api.openweathermap.org/data/2.5/weather?units=imperial&zip=';
     var BASE_URL2 = 'http://api.openweathermap.org/data/2.5/forecast/daily?zip=';
     var APP_ID = '&APPID=' + config.appSecret;
-    var LOCATION = {
-        postal: 84604,
-        city: 'Provo'
-    };
-    console.log(LOCATION);
-    this.getLocation = function () {
-        return $http({
-            method: 'GET',
-            url: "https://ipinfo.io/json"
-        }).then(function (response) {
-            console.log(response);
-            if (response.status !== 200) {
-                console.log(LOCATION);
-                return LOCATION;
-            } else {
-                LOCATION.postal = response.data.postal;
-                LOCATION.city = response.data.city;
-                console.log(LOCATION);
-                return response.data;
-            }
-        });
-    };
 
     this.getWeather = function (zip) {
         return $http({
             method: 'GET',
             url: BASE_URL1 + zip + APP_ID
         }).then(function (response) {
-            // var weatherObject = {};
             if (response.status === 200) {
                 console.log(response.data);
-                // weatherObject.temp = response.data.main.temp;
-                // weatherObject.icon = response.data.weather[0].icon;
-                // weatherObject.desc = response.data.weather[0].description;
-                // weatherObject.hum = response.data.main.humidity;
-                // weatherObject.pressure = response.data.main.pressure;
-                // weatherObject.windSpeed = response.data.wind.speed;
-                // return weatherObject;
                 return response.data;
             }
             return "It's broken, sorry!";
@@ -307,7 +272,7 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http, userP
                 forecastObject.desc6 = data[6].weather[0].main;
                 return forecastObject;
             }
-            return "It's broken, sorry! ";
+            return "It's broken, sorry!";
         });
     };
 });

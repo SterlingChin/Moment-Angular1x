@@ -21,12 +21,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     $scope.quoteAuthor = response.author || "Unknown";
   });
 
-//  _     ___   __     __   _____  _   ___   _     
-// | |   / / \ / /`   / /\   | |  | | / / \ | |\ | 
-// |_|__ \_\_/ \_\_, /_/--\  |_|  |_| \_\_/ |_| \| 
-
-
-
 //  _       ____   __   _____  _     ____  ___  
 // \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
 //  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
