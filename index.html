@@ -24,14 +24,14 @@
     <div>
       <img class="settings-icon" src="./icons/white-icon.png" alt="settings" />
     </div>
-    <settings-dir></settings-dir>
-    <forecast-dir></forecast-dir>
-    <clock-dir></clock-dir>
-    <quote-dir ng-hide='settings.quoteOption' class="bottom-center"></quote-dir>
-    <welcome-dir class="question-container"></welcome-dir>
-    <weather-dir></weather-dir>
+    <settings-dir ng-cloak></settings-dir>
+    <forecast-dir ng-cloak></forecast-dir>
+    <clock-dir ng-cloak></clock-dir>
+    <quote-dir ng-hide='settings.quoteOption' class="bottom-center" ng-cloak></quote-dir>
+    <welcome-dir></welcome-dir>
+    <weather-dir ng-cloak></weather-dir>
 
-    <div class='center clock' id="container">
+    <div class='center clock' id="container" ng-cloak='date'>
       <p ng-hide='settings.timeOption' class='date'>{{todayDate}}</p>
       <p ng-hide='settings.timeOption' id='clock'>{{time}}</p><br>
       <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{settings.userName}}.</p>

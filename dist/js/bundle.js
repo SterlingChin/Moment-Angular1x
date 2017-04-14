@@ -247,6 +247,8 @@ angular.module('unsplashExtention').service('weatherSvc', function ($http, userP
             method: 'GET',
             url: BASE_URL2 + zip + '&units=imperial&cnt=7' + APP_ID
         }).then(function (response) {
+            console.log(response.data);
+            //response.data.list[0].temp.max
             var forecastObject = {};
             var data = response.data.list;
             if (response.status === 200) {
