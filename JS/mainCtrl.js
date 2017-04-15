@@ -1,97 +1,76 @@
-angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quoteSvc, nameSvc, weatherSvc, userPreferences) {
+angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPreferences) {
 
-  //  __   ____ _____ _____  _   _      __    __  
-  // ( (` | |_   | |   | |  | | | |\ | / /`_ ( (` 
-  // _)_) |_|__  |_|   |_|  |_| |_| \| \_\_/ _)_) 
+  //  ┌─┐┌─┐┌┬┐┌┬┐┬┌┐┌┌─┐┌─┐
+  //  └─┐├┤  │  │ │││││ ┬└─┐
+  //  └─┘└─┘ ┴  ┴ ┴┘└┘└─┘└─┘
 
   $scope.settings = userPreferences.userSettings();
   $scope.zipcode = $scope.settings.zipcode
   $scope.name = $scope.settings.userName
   console.log($scope.name)
   $scope.newUser = value => {
-    if ($scope.name === "enter name") {
-      return true;
-    }else{
-      return false;
-    }
+    ($scope.name === "enter name") ? true: false
   }
 
+  //  ┌─┐ ┬ ┬┌─┐┌┬┐┌─┐┌─┐
+  //  │─┼┐│ ││ │ │ ├┤ └─┐
+  //  └─┘└└─┘└─┘ ┴ └─┘└─┘                          
 
-  //  ___    _     ___  _____  ____  __  
-  // / / \  | | | / / \  | |  | |_  ( (` 
-  // \_\_\\ \_\_/ \_\_/  |_|  |_|__ _)_)                             
-
-  quoteSvc.getQuote().then(function (response) {
-    if (!response.quoteText) {
-      quoteSvc.getQuote();
-    }
+  mainSvc.getQuote().then(response => {
     $scope.quoteText = response.quote;
-    $scope.quoteAuthor = response.author || "Unknown";
+    $scope.quoteAuthor = response.author;
   });
 
-//  _       ____   __   _____  _     ____  ___  
-// \ \    /| |_   / /\   | |  | |_| | |_  | |_) 
-//  \_\/\/ |_|__ /_/--\  |_|  |_| | |_|__ |_| \ 
-                                   
+  //  ┬ ┬┌─┐┌─┐┌┬┐┬ ┬┌─┐┬─┐
+  //  │││├┤ ├─┤ │ ├─┤├┤ ├┬┘
+  //  └┴┘└─┘┴ ┴ ┴ ┴ ┴└─┘┴└─
 
-$scope.getWeather = function(zipcode) {
-    // console.log('pinged weather')
-    // weatherSvc.getLocation().then(response => {
-    //     console.log(response)
-    //   $scope.city = response.city
-    //   return response.postal
-    // }).then(() => {
-        weatherSvc.getWeather(zipcode).then(function (response) {
-            $scope.weather = response;
-        //   $scope.weatherTemp = weatherObject.temp;
-        //   $scope.weatherIcon = weatherObject.icon;
-        //   $scope.weatherDesc = weatherObject.desc;
-        //   $scope.weatherHum = weatherObject.hum;
-        //   $scope.weatherPres = weatherObject.pressure;
-        //   $scope.weatherSpeed = weatherObject.windSpeed;
-        })
-        weatherSvc.getForecast(zipcode).then(function (forecastObject) {
-          $scope.forecastTempHigh = forecastObject.tempHigh;
-          $scope.forecastTempLow = forecastObject.tempLow;
-          $scope.forecastTempHigh1 = forecastObject.tempHigh1;
-          $scope.forecastTempLow1 = forecastObject.tempLow1;
-          $scope.forecastDesc1 = forecastObject.desc1;
-          $scope.forecastTempHigh2 = forecastObject.tempHigh2;
-          $scope.forecastTempLow2 = forecastObject.tempLow2;
-          $scope.forecastDesc2 = forecastObject.desc2;
-          $scope.forecastTempHigh3 = forecastObject.tempHigh3;
-          $scope.forecastTempLow3 = forecastObject.tempLow3;
-          $scope.forecastDesc3 = forecastObject.desc3;
-          $scope.forecastTempHigh4 = forecastObject.tempHigh4;
-          $scope.forecastTempLow4 = forecastObject.tempLow4;
-          $scope.forecastDesc4 = forecastObject.desc4;
-          $scope.forecastTempHigh5 = forecastObject.tempHigh5;
-          $scope.forecastTempLow5 = forecastObject.tempLow5;
-          $scope.forecastDesc5 = forecastObject.desc5;
-          $scope.forecastTempHigh6 = forecastObject.tempHigh6;
-          $scope.forecastTempLow6 = forecastObject.tempLow6;
-          $scope.forecastDesc6 = forecastObject.desc6;
-        });
-    //   });
+
+  $scope.getWeather = zipcode => {
+    mainSvc.getWeather(zipcode).then(response => {
+      $scope.weather = response;
+    })
+    mainSvc.getForecast(zipcode).then(forecastObject => {
+      $scope.forecastTempHigh = forecastObject.tempHigh;
+      $scope.forecastTempLow = forecastObject.tempLow;
+      $scope.forecastTempHigh1 = forecastObject.tempHigh1;
+      $scope.forecastTempLow1 = forecastObject.tempLow1;
+      $scope.forecastDesc1 = forecastObject.desc1;
+      $scope.forecastTempHigh2 = forecastObject.tempHigh2;
+      $scope.forecastTempLow2 = forecastObject.tempLow2;
+      $scope.forecastDesc2 = forecastObject.desc2;
+      $scope.forecastTempHigh3 = forecastObject.tempHigh3;
+      $scope.forecastTempLow3 = forecastObject.tempLow3;
+      $scope.forecastDesc3 = forecastObject.desc3;
+      $scope.forecastTempHigh4 = forecastObject.tempHigh4;
+      $scope.forecastTempLow4 = forecastObject.tempLow4;
+      $scope.forecastDesc4 = forecastObject.desc4;
+      $scope.forecastTempHigh5 = forecastObject.tempHigh5;
+      $scope.forecastTempLow5 = forecastObject.tempLow5;
+      $scope.forecastDesc5 = forecastObject.desc5;
+      $scope.forecastTempHigh6 = forecastObject.tempHigh6;
+      $scope.forecastTempLow6 = forecastObject.tempLow6;
+      $scope.forecastDesc6 = forecastObject.desc6;
+    });
   }
-  var getZip = function(){
-    if($scope.settings.zipcode !== 0){
+  const getZip = () => {
+    if ($scope.settings.zipcode !== 0) {
       $scope.getWeather($scope.settings.zipcode)
+      // let myInterval = setInterval($scope.getWeather, 1000)
       return;
     } else {
-        return "";
+      return "";
     }
   }
   getZip()
-//   var myInterval = setInterval($scope.getWeather, 1000)
-console.log('hello')
-  //  __    ___   ____  ____ _____  _   _      __   
-  // / /`_ | |_) | |_  | |_   | |  | | | |\ | / /`_ 
-  // \_\_/ |_| \ |_|__ |_|__  |_|  |_| |_| \| \_\_/ 
 
-  function greeting() {
-    var currentTime = new Date();
-    var currentHours = currentTime.getHours();
+  //  ┌─┐┬─┐┌─┐┌─┐┌┬┐┬┌┐┌┌─┐
+  //  │ ┬├┬┘├┤ ├┤  │ │││││ ┬
+  //  └─┘┴└─└─┘└─┘ ┴ ┴┘└┘└─┘
+
+  let greeting = () => {
+    const currentTime = new Date();
+    const currentHours = currentTime.getHours();
     if (currentHours < 12) {
       $scope.greeting = "Good Morning";
     } else if (18 > currentHours && currentHours >= 12) {
@@ -101,22 +80,21 @@ console.log('hello')
     }
   }
   greeting();
- 
 
-  //  __    _     ___   __    _    
-  // / /`  | |   / / \ / /`  | |_/ 
-  // \_\_, |_|__ \_\_/ \_\_, |_| \ 
 
-  function updateClock() {
-    var currentTime = new Date();
+  //  ┌─┐┬  ┌─┐┌─┐┬┌─
+  //  │  │  │ ││  ├┴┐
+  //  └─┘┴─┘└─┘└─┘┴ ┴
 
-    var currentHours = currentTime.getHours();
-    var currentMinutes = currentTime.getMinutes();
+  let updateClock = ()=>{
+    let currentTime = new Date();
+    let currentHours = currentTime.getHours();
+    let currentMinutes = currentTime.getMinutes();
     currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
-    var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+    let timeOfDay = (currentHours < 12) ? "AM" : "PM";
     currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
     currentHours = (currentHours === 0) ? 12 : currentHours;
-    var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+    let currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
     document.getElementById("clock").firstChild.nodeValue = currentTimeString;
   }
 
@@ -130,9 +108,9 @@ console.log('hello')
   $scope.day6 = moment().add(6, 'days').format('MMM Do');
 
 
-  //  _        __   _____  __    _     ____  __  
-  // \ \    / / /\   | |  / /`  | |_| | |_  ( (` 
-  //  \_\/\/ /_/--\  |_|  \_\_, |_| | |_|__ _)_) 
+  //  ┬ ┬┌─┐┌┬┐┌─┐┬ ┬┌─┐┌─┐
+  //  │││├─┤ │ │  ├─┤├┤ └─┐
+  //  └┴┘┴ ┴ ┴ └─┘┴ ┴└─┘└─┘
 
   $scope.$watch('name', function () {
     if ($scope.name === "my name is Steve") {
