@@ -1,5 +1,4 @@
-
-angular.module('unsplashExtention', ["ngCookies"]);
+angular.module('app', ["ngCookies"]);
 
 //      _            _ _                  _     _                            
 //  ___| |_ ___ _ __| (_)_ __   __ _  ___| |__ (_)_ __    ___ ___  _ __ ___  
@@ -11,3 +10,4 @@ angular.module('unsplashExtention', ["ngCookies"]);
 //Ogre
 //Broadway KB
 //JS Stick Letters
+//Calvin S

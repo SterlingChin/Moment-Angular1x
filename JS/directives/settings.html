@@ -1,64 +1,66 @@
-<div class="menu-container">
-  <span class='menu-title'><u>settings</u></span><br>
+<div id="menu">
+  <div class='menu-container'>
+    <span class='menu-title'><u>settings</u></span><br>
 
-  <span class='menu-items'>name:
+    <span class='menu-items'>name:
     <input class='name' ng-model='name' type="text" name="name" value="Name?">
     <input type='submit' ng-click='settings.userName = name' value='save'>
   </span><br>
-  <span class='menu-items'>zipcode:
+    <span class='menu-items'>zipcode:
     <input class='name' ng-model='zipcode' type="text" name="name" value="Zipcode">
     <input type='submit' ng-click='getWeather(zipcode); settings.zipcode = zipcode' zipcode = 'zipcode' value='save'>
   </span><br>
 
-  <span class='menu-items'>time:
+    <span class='menu-items'>time:
     <span ng-hide='settings.timeOption' ng-click='settings.timeOption = !settings.timeOption' class='menu-toggle'>
         on
     </span>
     <span ng-show='settings.timeOption' ng-click='settings.timeOption = !settings.timeOption' class='menu-toggle'>
         off
     </span>
-  </span><br>
+    </span><br>
 
-  <span class='menu-items'>greeting:
+    <span class='menu-items'>greeting:
     <span ng-hide='settings.greetingOption' ng-click='settings.greetingOption = !settings.greetingOption' class='menu-toggle'>
         on
     </span>
     <span ng-show='settings.greetingOption' ng-click='settings.greetingOption = !settings.greetingOption' class='menu-toggle'>
         off
     </span>
-  </span><br>
+    </span><br>
 
-  <span class='menu-items'>weather:
+    <span class='menu-items'>weather:
     <span ng-hide='settings.weatherOption' ng-click='settings.weatherOption = !settings.weatherOption' class='menu-toggle'>
         on
     </span>
     <span ng-show='settings.weatherOption' ng-click='settings.weatherOption = !settings.weatherOption' class='menu-toggle'>
         off
     </span>
-  </span><br>
+    </span><br>
 
-  <span class='menu-items'>quote:
+    <span class='menu-items'>quote:
     <span ng-hide='settings.quoteOption' ng-click='settings.quoteOption = !settings.quoteOption' class='menu-toggle'>
         on
     </span>
     <span ng-show='settings.quoteOption' ng-click='settings.quoteOption = !settings.quoteOption' class='menu-toggle'>
         off
     </span>
-  </span><br>
-  <span class='menu-items'>search:
+    </span><br>
+    <span class='menu-items'>search:
     <span ng-hide='settings.search' ng-click='settings.search = !settings.search' class='menu-toggle'>
         on
     </span>
     <span ng-show='settings.search' ng-click='settings.search = !settings.search' class='menu-toggle'>
         off
     </span>
-  </span><br>
-  <span class='menu-items'>forecast:
+    </span><br>
+    <span class='menu-items'>forecast:
     <span ng-show='settings.forecastOption2' ng-click='settings.forecastOption2 = !settings.forecastOption2' class='menu-toggle'>
         on
     </span>
     <span ng-hide='settings.forecastOption2' ng-click='settings.forecastOption2 = !settings.forecastOption2' class='menu-toggle'>
         off
     </span>
-  </span><br>
+    </span><br>
+  </div>
 </div>
