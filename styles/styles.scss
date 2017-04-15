@@ -11,8 +11,8 @@ $shadow: 2px 2px rgba(0,0,0,0.3);
 $shadowSm: 1px 1px rgba(0,0,0,0.3);
 
 main {
-    // background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
-    background-image: url('https://source.unsplash.com/category/nature/1920x1080');
+    background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
+    // background-image: url('https://source.unsplash.com/category/nature/1920x1080');
     background-size: cover;
     height: 100vh;
     text-align: center;
@@ -160,7 +160,7 @@ a {
 }
 
 .settings-menu {
-    display: none;
+    // display: none;
     color: white;
     top: 14px;
     left: 38px;
@@ -252,7 +252,7 @@ a {
     font-family: $settingsFont;
     background-color: rgba(0, 0, 0, 0.6);
     text-align: justify;
-    display: none;
+    // display: none;
     position: absolute;
     bottom: 0;
     right: 0;

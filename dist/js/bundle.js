@@ -64,6 +64,14 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   $scope.settings = userPreferences.userSettings();
   $scope.zipcode = $scope.settings.zipcode;
   $scope.name = $scope.settings.userName;
+  console.log($scope.name);
+  $scope.newUser = function (value) {
+    if ($scope.name === "enter name") {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   //  ___    _     ___  _____  ____  __  
   // / / \  | | | / / \  | |  | |_  ( (` 
@@ -122,7 +130,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     });
     //   });
   };
-  console.log($scope.settings.zipcode);
   var getZip = function getZip() {
     if ($scope.settings.zipcode !== 0) {
       $scope.getWeather($scope.settings.zipcode);
@@ -185,12 +192,6 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
     if ($scope.name === "my name is Steve") {
       $('.console').show(300);
       $('.console').css('display', 'flex');
-    }
-  });
-  $scope.$watch('name', function () {
-    if ($scope.name === "enter name") {
-      $('.question-container').show(300);
-      $('.question-container').css('display', 'flex');
     }
   });
 });

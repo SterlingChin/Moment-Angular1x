@@ -7,6 +7,14 @@ angular.module('unsplashExtention').controller('mainCtrl', function ($scope, quo
   $scope.settings = userPreferences.userSettings();
   $scope.zipcode = $scope.settings.zipcode
   $scope.name = $scope.settings.userName
+  console.log($scope.name)
+  $scope.newUser = value => {
+    if ($scope.name === "enter name") {
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 
   //  ___    _     ___  _____  ____  __  
@@ -66,7 +74,6 @@ $scope.getWeather = function(zipcode) {
         });
     //   });
   }
-  console.log($scope.settings.zipcode)
   var getZip = function(){
     if($scope.settings.zipcode !== 0){
       $scope.getWeather($scope.settings.zipcode)
@@ -131,12 +138,6 @@ console.log('hello')
     if ($scope.name === "my name is Steve") {
       $('.console').show(300);
       $('.console').css('display', 'flex');
-    }
-  });
-  $scope.$watch('name', function () {
-    if ($scope.name === "enter name") {
-      $('.question-container').show(300);
-      $('.question-container').css('display', 'flex');
     }
   });
 });
