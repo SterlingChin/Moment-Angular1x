@@ -1,11 +1,11 @@
         <div class="forecast-container ng-cloak">
-            <div>
-                <span class="forecast-day-data">tomorrow</span><br>
-                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh1 | number: 0}}°</span><br>
-                <span class="forecast-day-data">low: {{forecastTempLow1 | number: 0}}°</span><br>
-                <span class="forecast-day-data">{{forecastDesc1}}</span><br>
+            <div ng-repeat="forecast in forecast">
+                <span class="forecast-day-data">{{forecast.day}}</span><br>
+                <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecast.temp.max | number: 0}}°</span><br>
+                <span class="forecast-day-data">low: {{forecast.temp.min | number: 0}}°</span><br>
+                <span class="forecast-day-data">{{forecast.weather[0].main}}</span><br>
             </div>
-            <div>
+            <!--<div>
                 <span class="forecast-day-data">{{day2}}</span><br>
                 <span class="forecast-day-data">high: </span><span class="forecast-day">{{forecastTempHigh2 | number: 0}}°</span><br>
                 <span class="forecast-day-data">low: {{forecastTempLow2 | number: 0}}°</span><br>
@@ -36,7 +36,7 @@
                 <span class="forecast-day-data">{{forecastDesc6}}</span><br>
                 <span></span><br>
                 <span class="forecast-day-data" id='hideForecast' ng-click='forecastOption'>hide forecast</span>
-            </div>
+            </div>-->
         </div>
 
         <div class="forecast-container2" ng-show='settings.forecastOption2'>

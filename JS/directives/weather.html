@@ -14,8 +14,8 @@
             </div>
 
             <div id='weatherData'>
-                <span>high: {{forecastTempHigh | number: 0}}°</span><br>
-                <span>low: {{forecastTempLow | number: 0}}°</span><br>
+                <span>high: {{weatherForecast[0].temp.max | number: 0}}°</span><br>
+                <span>low: {{weatherForecast[0].temp.min | number: 0}}°</span><br>
                 <span>windspeed: {{weather.wind.speed}}mph</span><br>
                 <span>humidity: {{weather.main.humidity}}%</span><br>
                 <span></span><br>
