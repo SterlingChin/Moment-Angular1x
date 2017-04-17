@@ -44,11 +44,11 @@ angular.module('app')
           });
 
           $('#hideForecast').on('click', function () {
-            $('.forecast-container').fadeOut(500);
+            $('.forecast-main').fadeOut(500);
           });
           $('#sevenDay').on('click', function () {
-            $('.forecast-container').fadeIn(500);
-            $('.forecast-container').css('display', 'flex');
+            $('.forecast-main').fadeIn(500);
+            $('.forecast-main').css('display', 'flex');
           });
 
           $('.question-icon').on('click', function () {

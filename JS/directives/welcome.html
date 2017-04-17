@@ -1,4 +1,4 @@
-<div class="question-container" ng-show='newUser(name)'>
+<div class="question-container" ng-show='welcome'>
   <p>
     <u>Welcome to Moment!</u>
   </p><br>
@@ -14,7 +14,7 @@
     <span><a target="_blank" href='mailto:sterling.chin@gmail.com'>sterling.chin@gmail.com</a></span><br>
   </p><br>
   
-  <p align-content="right" id='question-hide'>
+  <p align-content="right" class='welcome' ng-click='welcome = !welcome'>
     <span><u>hide</u></span>
   </p>
 </div>

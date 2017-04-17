@@ -123,20 +123,32 @@ a {
 #hideForecast {
   cursor: pointer; }
 
-.forecast-container {
+.forecast-main {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
   left: 50%;
   transform: translate(-50%, 0%);
   width: 45vw;
   top: 5px;
-  margin: auto;
-  display: none;
-  flex-direction: row;
-  justify-content: space-between;
   position: absolute;
-  text-align: right;
   font-family: "PT Sans Narrow", sans-serif;
   text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
   color: white; }
+
+.forecast-title {
+  font-size: 1.5em;
+  text-align: center; }
+
+.forecast-container {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: right; }
+
+.forecast-hide {
+  text-align: right; }
 
 .forecast-container2 {
   left: 50%;
@@ -145,7 +157,7 @@ a {
   top: 5px;
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   position: absolute;
   text-align: right;
@@ -249,7 +261,7 @@ a {
 
 .question-container {
   font-family: "PT Sans Narrow", sans-serif;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   text-align: justify;
   position: absolute;
   bottom: 0;
@@ -265,6 +277,9 @@ a {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0%); }
+
+.welcome {
+  cursor: pointer; }
 
 #question-hide {
   text-align: right;
