@@ -1,0 +1,169 @@
+{
+  "city": {
+    "id": 5780026,
+    "name": "Provo",
+    "coord": {
+      "lon": -111.6586,
+      "lat": 40.2338
+    },
+    "country": "US",
+    "population": 112488
+  },
+  "cod": "200",
+  "message": 0.4687292,
+  "cnt": 7,
+  "list": [{
+    "dt": 1492455600,
+    "temp": {
+      "day": 64.56,
+      "min": 49.44,
+      "max": 65.26,
+      "night": 49.44,
+      "eve": 62.11,
+      "morn": 59.88
+    },
+    "pressure": 815.92,
+    "humidity": 27,
+    "weather": [{
+      "id": 801,
+      "main": "Clouds",
+      "description": "few clouds",
+      "icon": "02d"
+    }],
+    "speed": 2.11,
+    "deg": 233,
+    "clouds": 24
+  }, {
+    "dt": 1492542000,
+    "temp": {
+      "day": 58.57,
+      "min": 39.2,
+      "max": 59,
+      "night": 39.2,
+      "eve": 51.28,
+      "morn": 50.63
+    },
+    "pressure": 814.37,
+    "humidity": 37,
+    "weather": [{
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10d"
+    }],
+    "speed": 2.73,
+    "deg": 208,
+    "clouds": 80,
+    "rain": 8.25
+  }, {
+    "dt": 1492628400,
+    "temp": {
+      "day": 45.79,
+      "min": 33.26,
+      "max": 51.17,
+      "night": 33.26,
+      "eve": 50.56,
+      "morn": 35.69
+    },
+    "pressure": 820.6,
+    "humidity": 64,
+    "weather": [{
+      "id": 600,
+      "main": "Snow",
+      "description": "light snow",
+      "icon": "13d"
+    }],
+    "speed": 1.1,
+    "deg": 342,
+    "clouds": 0,
+    "snow": 0.06
+  }, {
+    "dt": 1492714800,
+    "temp": {
+      "day": 56.91,
+      "min": 38.26,
+      "max": 56.91,
+      "night": 41.5,
+      "eve": 49.86,
+      "morn": 38.26
+    },
+    "pressure": 822.88,
+    "humidity": 0,
+    "weather": [{
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10d"
+    }],
+    "speed": 2.18,
+    "deg": 226,
+    "clouds": 23,
+    "rain": 3.58
+  }, {
+    "dt": 1492801200,
+    "temp": {
+      "day": 48.27,
+      "min": 32.36,
+      "max": 54.1,
+      "night": 32.36,
+      "eve": 54.1,
+      "morn": 39.54
+    },
+    "pressure": 831.98,
+    "humidity": 0,
+    "weather": [{
+      "id": 800,
+      "main": "Clear",
+      "description": "sky is clear",
+      "icon": "01d"
+    }],
+    "speed": 2.83,
+    "deg": 355,
+    "clouds": 0,
+    "rain": 0.81,
+    "snow": 0.01
+  }, {
+    "dt": 1492887600,
+    "temp": {
+      "day": 57.69,
+      "min": 33.75,
+      "max": 57.76,
+      "night": 39.49,
+      "eve": 57.76,
+      "morn": 33.75
+    },
+    "pressure": 828.69,
+    "humidity": 0,
+    "weather": [{
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10d"
+    }],
+    "speed": 1.41,
+    "deg": 254,
+    "clouds": 0,
+    "rain": 0.36
+  }, {
+    "dt": 1492974000,
+    "temp": {
+      "day": 53.87,
+      "min": 29.17,
+      "max": 55.54,
+      "night": 32.16,
+      "eve": 55.54,
+      "morn": 29.17
+    },
+    "pressure": 828.88,
+    "humidity": 0,
+    "weather": [{
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10d"
+    }],
+    "speed": 1.56,
+    "deg": 328,
+    "clouds": 0
+  }]
+}

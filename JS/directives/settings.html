@@ -1,7 +1,6 @@
 <div id="menu">
   <div class='menu-container'>
     <span class='menu-title'><u>settings</u></span><br>
-
     <span class='menu-items'>name:
     <input class='name' ng-model='name' type="text" name="name" value="Name?">
     <input type='submit' ng-click='settings.userName = name' value='save'>
@@ -19,7 +18,6 @@
         off
     </span>
     </span><br>
-
     <span class='menu-items'>greeting:
     <span ng-hide='settings.greetingOption' ng-click='settings.greetingOption = !settings.greetingOption' class='menu-toggle'>
         on
@@ -37,7 +35,6 @@
         off
     </span>
     </span><br>
-
     <span class='menu-items'>quote:
     <span ng-hide='settings.quoteOption' ng-click='settings.quoteOption = !settings.quoteOption' class='menu-toggle'>
         on
@@ -62,5 +59,6 @@
         off
     </span>
     </span><br>
+    <span class='welcome' ng-click='welcome = !welcome'>help</span>
   </div>
 </div>

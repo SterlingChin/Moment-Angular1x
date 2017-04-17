@@ -61,7 +61,7 @@ gulp.task('build', [ 'clean', 'build-css', 'build-js'], function() {
 });
 
 gulp.task('watch', function() {
-    return gulp.watch(['./index.html', './styles/*.*css', './js/**/*.js'], ['build']);
+    return gulp.watch(['./index.html', './styles/*.css', './styles/*.scss', './js/**/*.js'], ['build']);
 });
 
 gulp.task('default', ['clean', 'build-js', 'build-css', 'watch'])

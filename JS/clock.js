@@ -1,3 +1,7 @@
+  //  ┌─┐┬  ┌─┐┌─┐┬┌─
+  //  │  │  │ ││  ├┴┐
+  //  └─┘┴─┘└─┘└─┘┴ ┴
+
 function updateClock() {
     var currentTime = new Date();
 
