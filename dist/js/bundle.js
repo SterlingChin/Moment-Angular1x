@@ -43,9 +43,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   $scope.zipcode = $scope.settings.zipcode;
   $scope.name = $scope.settings.userName;
   console.log($scope.name);
-  // $scope.newUser = value => {
-  //   ($scope.name === "enter name") ? true: false
-  // }
 
   //  ┌─┐┬  ┌─┐┌─┐┬┌─
   //  │  │  │ ││  ├┴┐
@@ -61,11 +58,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   var day4 = moment().add(4, 'days').format('MMM Do');
   var day5 = moment().add(5, 'days').format('MMM Do');
   var day6 = moment().add(6, 'days').format('MMM Do');
-
-  var timeConverter = moment(1492887600000).format("MMM Do");
-  console.log(timeConverter);
-  // let calendar = [day1, day2, day3, day4, day5, day6]
-  // console.log(calendar)
 
   //  ┌─┐ ┬ ┬┌─┐┌┬┐┌─┐┌─┐
   //  │─┼┐│ ││ │ │ ├┤ └─┐
@@ -98,7 +90,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   var getZip = function getZip() {
     if ($scope.settings.zipcode !== 0) {
       $scope.getWeather($scope.settings.zipcode);
-      // let myInterval = setInterval($scope.getWeather, 1000)
       return;
     } else {
       return "";
@@ -265,13 +256,13 @@ angular.module('app').directive('animateDir', function (userPreferences) {
           $('.forecast-main').css('display', 'flex');
         });
 
-        $('.question-icon').on('click', function () {
-          $('.question-container').fadeIn(500);
-          $('.question-container').css('display', 'flex');
-        });
-        $('#question-hide').on('click', function () {
-          $('.question-container').fadeOut(500);
-        });
+        // $('.question-icon').on('click', function () {
+        //   $('.question-container').fadeIn(500);
+        //   $('.question-container').css('display', 'flex');
+        // });
+        // $('#question-hide').on('click', function () {
+        //   $('.question-container').fadeOut(500);
+        // });
         //  ┬ ┬┌─┐┬  ┌─┐
         //  ├─┤├┤ │  ├─┘
         //  ┴ ┴└─┘┴─┘┴  

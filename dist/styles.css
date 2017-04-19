@@ -59,7 +59,8 @@ a {
   text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
 
 .clock {
-  margin: 0px auto; }
+  margin: 0px auto;
+  padding: 5px; }
 
 .greeting {
   font-family: "Oswald", sans-serif;
@@ -77,7 +78,9 @@ a {
   text-shadow: 1px 1px rgba(0, 0, 0, 0.3); }
 
 #container {
-  width: 100vw; }
+  width: 50vw;
+  padding: 5px;
+  border-radius: 50px; }
 
 .center {
   position: absolute;
@@ -90,7 +93,8 @@ a {
   top: 10px;
   right: 10px;
   color: white;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.3); }
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  height: 75px; }
 
 #weatherCity {
   font-family: "PT Sans Narrow", sans-serif;
@@ -153,9 +157,11 @@ a {
 .forecast-container2 {
   left: 50%;
   transform: translate(-50%, 0%);
-  width: 45vw;
+  width: 50vw;
   top: 5px;
   margin: auto;
+  padding: 5px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -178,8 +184,7 @@ a {
   left: 6px;
   height: 1vw;
   max-height: 30px;
-  min-height: 20px;
-  opacity: 0.7; }
+  min-height: 20px; }
 
 #menu {
   display: none;
@@ -246,7 +251,9 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 40vw;
-  height: 5vh; }
+  height: 5vh;
+  padding: 5px;
+  border-radius: 10px; }
 
 .question-icon {
   margin: 0;

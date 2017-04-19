@@ -6,7 +6,9 @@
 / __| __/ _ \ '__| | | '_ \ / _` |/ __| '_ \| | '_ \  / __/ _ \| '_ ` _ \ 
 \__ \ ||  __/ |  | | | | | | (_| | (__| | | | | | | || (_| (_) | | | | | |
 |___/\__\___|_|  |_|_|_| |_|\__, |\___|_| |_|_|_| |_(_)___\___/|_| |_| |_|
-                            |___/                                        
+                            |___/  
+
+Tech used: HTML/SCSS, Jquery, JavaScript, Angular 1x
  -->
 
 <head>
@@ -17,7 +19,6 @@
 </head>
 
 <body ng-controller="mainCtrl" onload="updateClock(); setInterval('updateClock()', 1000)">
-<!--<body ng-controller="mainCtrl">-->
   <animate-dir settings='settings'></animate-dir>
   <main>
 
@@ -27,40 +28,12 @@
     <settings-dir ng-cloak></settings-dir>
     <forecast-dir ng-cloak></forecast-dir>
     <clock-dir ng-cloak></clock-dir>
-    <quote-dir ng-hide='settings.quoteOption' class="bottom-center" ng-cloak></quote-dir>
-    <welcome-dir></welcome-dir>
+    <quote-dir ng-cloak></quote-dir>
+    <welcome-dir ng-cloak></welcome-dir>
     <weather-dir ng-cloak></weather-dir>
-
-    <div class='center clock' id="container" ng-cloak='date'>
-      <p ng-hide='settings.timeOption' class='date'>{{todayDate}}</p>
-      <p ng-hide='settings.timeOption' id='clock'>{{time}}</p><br>
-      <p ng-hide='settings.greetingOption' class="greeting">{{greeting}}, {{settings.userName}}.</p>
-      <br>
-      <iframe ng-hide='settings.search' src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo" style="overflow:hidden;margin:0;padding:0;width:408px;height:40px;"
-        frameborder="0"></iframe>
-    </div>
 
     <div>
       <img class="console" src="./icons/answer-42.gif" alt="heart-of-gold" />
-    </div>
-
-    <!--<div class="acknowledgements">
-            <p><u>
-            Acknowledgements
-          </u></p><br>
-            <p>
-                <ul>API's used
-                    <li>www.openweathermap.org</li>
-                    <li>www.forismatic.com</li>
-                    <li>www.unsplash.com</li>
-                    <li>www.momentjs.com</li>
-                </ul>
-                API's: www.openweathermap.org
-            </p>
-        </div>-->
-
-    <div>
-      <img class="question-icon" src="./icons/question-256.png" alt="questions" ng-show=''/>
     </div>
 
   </main>

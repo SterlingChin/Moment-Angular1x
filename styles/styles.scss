@@ -3,6 +3,8 @@ $quoteFont: 'PT Sans Narrow', sans-serif;
 $settingsFont: 'PT Sans Narrow', sans-serif;
 $shadow: 2px 2px rgba(0,0,0,0.3);
 $shadowSm: 1px 1px rgba(0,0,0,0.3);
+// $componant: rgba(0, 0, 0, 0.03);
+$componant: null;
 
 main {
     // background-image: url('https://images.unsplash.com/photo-1458571037713-913d8b481dc6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&s=693efb16c7d530531ac72634aacefc43');
@@ -27,6 +29,8 @@ a {
 
 .clock {
     margin: 0px auto;
+    background-color: $componant;
+    padding: 5px;
 }
 
 .greeting {
@@ -47,7 +51,10 @@ a {
 }
 
 #container {
-    width: 100vw;
+    width: 50vw;
+    padding: 5px;
+    background-color: $componant;
+    border-radius: 50px;
 }
 
 .center {
@@ -63,6 +70,7 @@ a {
     right: 10px;
     color: white;
     text-shadow: $shadow;
+    height: 75px;
 }
 
 #weatherCity {
@@ -114,6 +122,7 @@ a {
     font-family: $quoteFont;
     text-shadow: $shadowSm;
     color: white;
+    background-color: $componant;
 }
 
 .forecast-title{
@@ -135,9 +144,11 @@ a {
 .forecast-container2 {
     left: 50%;
     transform: translate(-50%, 0%);
-    width: 45vw;
+    width: 50vw;
     top: 5px;
     margin: auto;
+    padding: 5px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -146,6 +157,7 @@ a {
     font-family: $quoteFont;
     text-shadow: $shadowSm;
     color: white;
+    background-color: $componant;
 }
 
 .forecast-day {
@@ -164,7 +176,7 @@ a {
     height: 1vw;
     max-height: 30px;
     min-height: 20px;
-    opacity: 0.7;
+    // opacity: 0.7;
 }
 
 #menu {
@@ -231,6 +243,7 @@ a {
     padding: 5px;
     margin: 0;
     text-shadow: $shadowSm;
+    
 }
 
 #quoteAuthor {
@@ -245,6 +258,9 @@ a {
     transform: translate(-50%, -50%);
     width: 40vw;
     height: 5vh;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: $componant;
 }
 
 .question-icon {

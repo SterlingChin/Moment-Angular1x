@@ -8,9 +8,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   $scope.zipcode = $scope.settings.zipcode
   $scope.name = $scope.settings.userName
   console.log($scope.name)
-  // $scope.newUser = value => {
-  //   ($scope.name === "enter name") ? true: false
-  // }
 
   //  ┌─┐┬  ┌─┐┌─┐┬┌─
   //  │  │  │ ││  ├┴┐
@@ -26,11 +23,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   let day4 = moment().add(4, 'days').format('MMM Do');
   let day5 = moment().add(5, 'days').format('MMM Do');
   let day6 = moment().add(6, 'days').format('MMM Do');
-
-  let timeConverter = moment(1492887600000).format("MMM Do")
-  console.log(timeConverter)
-  // let calendar = [day1, day2, day3, day4, day5, day6]
-  // console.log(calendar)
 
   //  ┌─┐ ┬ ┬┌─┐┌┬┐┌─┐┌─┐
   //  │─┼┐│ ││ │ │ ├┤ └─┐
@@ -64,7 +56,6 @@ angular.module('app').controller('mainCtrl', function ($scope, mainSvc, userPref
   const getZip = () => {
     if ($scope.settings.zipcode !== 0) {
       $scope.getWeather($scope.settings.zipcode)
-      // let myInterval = setInterval($scope.getWeather, 1000)
       return;
     } else {
       return "";
