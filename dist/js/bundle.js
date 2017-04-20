@@ -205,12 +205,9 @@ angular.module('app').factory('userPreferences', ['$cookies', function ($cookies
 'use strict';
 
 angular.module('app').directive('animateDir', function (userPreferences) {
-  //               _                 _   _                 
-  //    __ _ _ __ (_)_ __ ___   __ _| |_(_) ___  _ __  ___ 
-  //   / _` | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \/ __|
-  //  | (_| | | | | | | | | | | (_| | |_| | (_) | | | \__ \
-  //   \__,_|_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|___/
-  //                                                                                                   
+  // ┌─┐┌┐┌┬┌┬┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+  // ├─┤│││││││├─┤ │ ││ ││││└─┐
+  // ┴ ┴┘└┘┴┴ ┴┴ ┴ ┴ ┴└─┘┘└┘└─┘
   return {
     scope: {
       settings: "="
@@ -222,6 +219,7 @@ angular.module('app').directive('animateDir', function (userPreferences) {
         //  └─┐├┤  │  │ │││││ ┬└─┐
         //  └─┘└─┘ ┴  ┴ ┴┘└┘└─┘└─┘
         $('.settings-icon').on('mouseenter', function () {
+          console.log('settings');
           $('#menu').fadeIn(300);
         });
 
@@ -234,6 +232,7 @@ angular.module('app').directive('animateDir', function (userPreferences) {
         //  └─┘└└─┘└─┘ ┴ └─┘└─┘ 
         $('.bottom-center').on('mouseenter', function () {
           $('#quoteAuthor').fadeIn(300);
+          console.log('quotes');
         });
         $('.bottom-center').on('mouseleave', function () {
           $('#quoteAuthor').fadeOut(300);
@@ -243,6 +242,7 @@ angular.module('app').directive('animateDir', function (userPreferences) {
         //  └┴┘└─┘┴ ┴ ┴ ┴ ┴└─┘┴└─
         $('.weather').on('mouseenter', function () {
           $('#weatherData').fadeIn(500);
+          console.log('weather');
         });
         $('.weather').on('mouseleave', function () {
           $('#weatherData').fadeOut(500);
@@ -263,6 +263,7 @@ angular.module('app').directive('animateDir', function (userPreferences) {
         // $('#question-hide').on('click', function () {
         //   $('.question-container').fadeOut(500);
         // });
+
         //  ┬ ┬┌─┐┬  ┌─┐
         //  ├─┤├┤ │  ├─┘
         //  ┴ ┴└─┘┴─┘┴  

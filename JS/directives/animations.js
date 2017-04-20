@@ -1,11 +1,8 @@
 angular.module('app')
   .directive('animateDir', function (userPreferences) {
-    //               _                 _   _                 
-    //    __ _ _ __ (_)_ __ ___   __ _| |_(_) ___  _ __  ___ 
-    //   / _` | '_ \| | '_ ` _ \ / _` | __| |/ _ \| '_ \/ __|
-    //  | (_| | | | | | | | | | | (_| | |_| | (_) | | | \__ \
-    //   \__,_|_| |_|_|_| |_| |_|\__,_|\__|_|\___/|_| |_|___/
-    //                                                                                                   
+    // ┌─┐┌┐┌┬┌┬┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+    // ├─┤│││││││├─┤ │ ││ ││││└─┐
+    // ┴ ┴┘└┘┴┴ ┴┴ ┴ ┴ ┴└─┘┘└┘└─┘
     return {
       scope: {
         settings: "="
@@ -17,6 +14,7 @@ angular.module('app')
           //  └─┐├┤  │  │ │││││ ┬└─┐
           //  └─┘└─┘ ┴  ┴ ┴┘└┘└─┘└─┘
           $('.settings-icon').on('mouseenter', function () {
+            console.log('settings')
             $('#menu').fadeIn(300)
           });
 
@@ -29,6 +27,7 @@ angular.module('app')
           //  └─┘└└─┘└─┘ ┴ └─┘└─┘ 
           $('.bottom-center').on('mouseenter', function () {
             $('#quoteAuthor').fadeIn(300);
+            console.log('quotes')
           });
           $('.bottom-center').on('mouseleave', function () {
             $('#quoteAuthor').fadeOut(300);
@@ -38,6 +37,7 @@ angular.module('app')
           //  └┴┘└─┘┴ ┴ ┴ ┴ ┴└─┘┴└─
           $('.weather').on('mouseenter', function () {
             $('#weatherData').fadeIn(500);
+            console.log('weather')
           });
           $('.weather').on('mouseleave', function () {
             $('#weatherData').fadeOut(500);
@@ -58,6 +58,7 @@ angular.module('app')
           // $('#question-hide').on('click', function () {
           //   $('.question-container').fadeOut(500);
           // });
+
           //  ┬ ┬┌─┐┬  ┌─┐
           //  ├─┤├┤ │  ├─┘
           //  ┴ ┴└─┘┴─┘┴  
