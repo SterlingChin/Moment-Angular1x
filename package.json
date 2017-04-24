@@ -4,6 +4,7 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
+    "start": "serve --single .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +29,9 @@
     "gulp-sourcemaps": "^2.2.0",
     "gulp-uglify": "^2.0.0",
     "gulp-webserver": "^0.9.1",
-    "moment": "^2.18.1"
+    "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "moment": "^2.18.1",
+    "serve": "^5.1.4"
   }
 }
