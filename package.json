@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SterlingChin/NewTabClone.git"
+    "url": "git+https://github.com/SterlingChin/Moment-Angular1x.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SterlingChin/NewTabClone/issues"
+    "url": "https://github.com/SterlingChin/Moment-Angular1x/issues"
   },
-  "homepage": "https://github.com/SterlingChin/NewTabClone#readme",
+  "homepage": "https://github.com/SterlingChin/Moment-Angular1x#readme",
   "dependencies": {
     "babel-preset-es2015": "^6.18.0",
     "del": "^2.2.2",
